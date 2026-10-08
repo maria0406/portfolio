@@ -186,13 +186,13 @@ footer { border-top: 1px solid var(--rule); padding-top: 28px; font: 400 12.5px/
 }
 
 /* Organization logos (About entries + project meta lines) */
-.org-entry { grid-template-columns: 44px minmax(0, 1fr); gap: 0 16px; align-items: start; }
+.org-entry { grid-template-columns: 64px minmax(0, 1fr); gap: 0 20px; align-items: center; }
 .org-entry .org-body { display: grid; gap: 6px; min-width: 0; }
-.org-logo { width: 44px; height: 44px; border-radius: 10px; background: #FBFAF7; border: 1px solid var(--rule); padding: 5px; display: grid; place-items: center; overflow: hidden; margin-top: -2px; }
+.org-logo { width: 64px; height: 64px; border-radius: 14px; background: #FBFAF7; border: 1px solid var(--rule); padding: 7px; display: grid; place-items: center; overflow: hidden; }
 .org-logo img { display: block; width: 100%; height: 100%; object-fit: contain; }
 .org-line .org-item { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
-.org-icon { width: 20px; height: 20px; flex: none; object-fit: contain; border-radius: 5px; background: #FBFAF7; border: 1px solid var(--rule); padding: 2px; }
+.org-icon { width: 26px; height: 26px; flex: none; object-fit: contain; border-radius: 5px; background: #FBFAF7; border: 1px solid var(--rule); padding: 2px; }
 @media (max-width: 480px) {
-  .org-entry { grid-template-columns: 40px minmax(0, 1fr); gap: 0 12px; }
-  .org-logo { width: 40px; height: 40px; padding: 4px; }
+  .org-entry { grid-template-columns: 52px minmax(0, 1fr); gap: 0 14px; }
+  .org-logo { width: 52px; height: 52px; padding: 5px; border-radius: 12px; }
 }
