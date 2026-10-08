@@ -199,3 +199,4 @@ footer { border-top: 1px solid var(--rule); padding-top: 28px; font: 400 12.5px/
 .lede a { color: var(--ink); text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 3px; }
 /* Entries with bullet lists: pin the logo beside the title instead of the block center */
 .org-entry:has(.points) { align-items: start; }
+.about-hero .pitch { max-width: none; }
