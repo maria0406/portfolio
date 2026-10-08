@@ -196,3 +196,4 @@ footer { border-top: 1px solid var(--rule); padding-top: 28px; font: 400 12.5px/
   .org-entry { grid-template-columns: 52px minmax(0, 1fr); gap: 0 14px; }
   .org-logo { width: 52px; height: 52px; padding: 5px; border-radius: 12px; }
 }
+.lede a { color: var(--ink); text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 3px; }
