@@ -14,8 +14,13 @@
 <main class="page">
 
   <header class="topnav">
-    <span class="name">Maria Cruz</span>
-    <nav aria-label="Projects">
+    <a class="name" href="./">Maria Cruz</a>
+    <nav class="tabs" aria-label="Site">
+      <a href="./" aria-current="page">Projects</a>
+      <a href="about.html">About</a>
+      <a href="https://github.com/maria0406/resume/releases/download/latest/maria_cruz_resume.pdf" target="_blank" rel="noopener">Resume<span class="ext" aria-hidden="true"> ↗</span></a>
+    </nav>
+    <nav class="subnav" aria-label="Projects">
       <a href="#set-prep">Set Prep Copilot</a>
       <a href="#arca">ARCA</a>
     </nav>
@@ -34,38 +39,13 @@
           <span><b>Works with</b> rekordbox 7, Pioneer DDJ-FLX4</span>
           <span><b>Validated</b> 12-track set, every cue exact</span>
           <span><b>Tests</b> 94 automated</span>
+          <span><b>Repo</b> <a href="https://github.com/maria0406/RekordBox-Plugin/tree/main/set-prep-copilot">maria0406/RekordBox-Plugin</a></span>
         </div>
       </div>
-      <figure class="arc" style="margin:0" aria-label="Diagram: set ordered along an energy arc, with transition cue types">
-        <svg viewBox="0 0 240 132" role="img" aria-label="Energy rises through warm up and build, peaks, then falls in the cool down">
-          <style>
-            .ax{stroke:var(--rule);stroke-width:1}
-            .curve{fill:none;stroke:var(--ink);stroke-width:2.2;stroke-linecap:round}
-            .area{fill:var(--accent);opacity:.22}
-            .dot{fill:var(--ground);stroke:var(--ink);stroke-width:1.6}
-            .ph{fill:var(--ink-3);font:500 8.5px var(--mono)}
-          </style>
-          <line class="ax" x1="4" y1="104" x2="236" y2="104"/>
-          <line class="ax" x1="62" y1="10" x2="62" y2="104" stroke-dasharray="2 3"/>
-          <line class="ax" x1="120" y1="10" x2="120" y2="104" stroke-dasharray="2 3"/>
-          <line class="ax" x1="178" y1="10" x2="178" y2="104" stroke-dasharray="2 3"/>
-          <path class="area" d="M8 88 C40 84 52 76 70 66 S110 44 128 28 S160 18 172 24 S206 60 232 80 L232 104 L8 104 Z"/>
-          <path class="curve" d="M8 88 C40 84 52 76 70 66 S110 44 128 28 S160 18 172 24 S206 60 232 80"/>
-          <circle class="dot" cx="8" cy="88" r="3.2"/><circle class="dot" cx="40" cy="84" r="3.2"/>
-          <circle class="dot" cx="70" cy="66" r="3.2"/><circle class="dot" cx="100" cy="47" r="3.2"/>
-          <circle class="dot" cx="128" cy="28" r="3.2"/><circle class="dot" cx="158" cy="19" r="3.2"/>
-          <circle class="dot" cx="190" cy="40" r="3.2"/><circle class="dot" cx="232" cy="80" r="3.2"/>
-          <text class="ph" x="33" y="120" text-anchor="middle">WARM UP</text>
-          <text class="ph" x="91" y="120" text-anchor="middle">BUILD</text>
-          <text class="ph" x="149" y="120" text-anchor="middle">PEAK</text>
-          <text class="ph" x="207" y="120" text-anchor="middle">COOL DOWN</text>
-        </svg>
-        <div class="cues" aria-label="Cue types placed at each transition">
-          <span class="cue c-in">MIX IN</span><span class="cue c-out">MIX OUT</span><span class="cue c-bass">BASS SWAP</span>
-          <span class="cue c-filter">FILTER</span><span class="cue c-drop">DROP</span><span class="cue c-loop">8-BAR LOOP</span>
-        </div>
-        <figcaption class="cap">Tracks ordered by BPM and key, with energy shaped to a set arc. Each dot is a track; cues mark every transition.</figcaption>
-      </figure>
+      <a class="thumb" href="#sp-demo">
+        <img src="set-prep-thumb.jpg" width="1124" height="700" decoding="async" alt="Set Prep Copilot in practice mode: a dark-themed screen titled &quot;Watch each transition, then do it&quot; shows an on-screen DDJ-FLX4 controller with two jog wheels and a mixer, beside a cue color legend listing MIX IN, MIX OUT, BASS SWAP, FILTER, DROP, LOOP 8, LATE IN and EARLY OUT, each with its own color.">
+        <span class="thumb-cta">Watch the demo ↓</span>
+      </a>
     </div>
   </section>
 
@@ -207,6 +187,7 @@
 
   <section class="hero" id="arca-hero">
     <div class="label">01 · ARCA</div>
+    <div class="hero-body">
     <div>
       <h1 style="font-size: clamp(40px, 6vw, 64px)">ARCA</h1>
       <p class="pitch">Automatic root cause analysis for a home-battery fleet. ARCA classifies each fault, proposes the cheapest safe fix, and pages a person only when a decision needs human judgment.</p>
@@ -216,6 +197,11 @@
         <span><b>Team</b> 3</span>
         <span><b>Repo</b> <a href="https://github.com/maria0406/base-hackathon">maria0406/base-hackathon</a></span>
       </div>
+    </div>
+      <a class="thumb" href="#arca-demo">
+        <img src="arca-thumb.jpg" width="1200" height="604" decoding="async" alt="ARCA Fleet dashboard for Austin: summary tiles for 3 open cases, 74% agent and engineer agreement and a 2.1-hour median time to action, above a root-cause histogram, active firmware versions as colored bars, and a false-pull rate falling from about 34% to 12% over eight weeks.">
+        <span class="thumb-cta">Watch the demo ↓</span>
+      </a>
     </div>
   </section>
 
@@ -278,7 +264,6 @@
 
   </article>
 
-  <footer>Maria Cruz · product case studies</footer>
 </main>
 </body>
 </html>
