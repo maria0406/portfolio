@@ -123,21 +123,11 @@
         </div>
         <div>
           <h3>Tested against the real thing</h3>
-          <p>I imported the generated cues into rekordbox 7 and checked them against its database. That turned up four real problems, all fixed. After the fixes, a 12-track set imported with every cue at the exact time and name.</p>
-          <div class="fixes">
-            <div>Cue placement ran past the end of short tracks.</div>
-            <div>rekordbox silently drops a cue when two share the same timestamp.</div>
-            <div>Tempo detection only resolved about 3 BPM steps. Fixed by fitting tempo to the detected beats.</div>
-            <div>Importing overwrote rekordbox's own BPM values.</div>
-          </div>
+          <p>I imported the generated cues into rekordbox 7 and checked them against its database, then fixed the problems that turned up. A 12-track set now imports with every cue at the exact time and name.</p>
         </div>
         <div>
           <h3>Scope decision</h3>
           <p>I cut the Spotify integration because Spotify's developer policy forbids analyzing its audio. That simplified the app to no login and no tester cap.</p>
-        </div>
-        <div>
-          <h3>Quality</h3>
-          <p><span class="stat">94 automated tests</span> covering analysis, ordering, cue placement, XML export, licensing rules and the coaching timeline.</p>
         </div>
       </div>
     </div>
