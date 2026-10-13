@@ -129,8 +129,43 @@
     </div>
   </section>
 
+  <section id="sp-cue-light">
+    <div class="label">06 · Cue light</div>
+    <div>
+      <h2>Beat-Synced Cue Light</h2>
+      <p class="lede">A small ESP32-powered LED ring that sits next to the DJ controller and turns the set plan into light, so a DJ can keep their eyes on the decks instead of the laptop.</p>
+      <div class="features three">
+        <div>
+          <h3>On the beat</h3>
+          <p>The ring pulses with every beat, stronger on the first beat of each bar, in time with the track that's playing.</p>
+        </div>
+        <div>
+          <h3>Follows the music</h3>
+          <p>Its color and brightness follow the track's energy and section: calmer in a breakdown, fuller at a drop.</p>
+        </div>
+        <div>
+          <h3>Counts down to the next move</h3>
+          <p>Eight bars before a cue (MIX OUT, BASS SWAP, FAKE DROP…) an amber arc starts shrinking around the ring, then flashes the cue's color at the moment to act.</p>
+        </div>
+      </div>
+      <div class="build">
+        <div>
+          <h3>How it works</h3>
+          <ul>
+            <li>The laptop app already knows each track's beat positions, energy curve and cue times. It streams a compact timing message to the ESP32 over USB serial about 10 times a second: tempo, time to the next beat, position in the bar, energy, and the next cue with its countdown.</li>
+            <li>The ESP32 runs its own beat clock between messages, so the light stays smooth and on time even if a message arrives late. It renders effects at 60 frames per second with the FastLED library.</li>
+            <li>The same timing engine that drives the on-screen Move Coach also drives the light. In practice mode it follows the app's own audio playback; during a live set it follows the controller's button presses.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="skills" aria-label="Built with">
+        <span>ESP32</span><span>C++ (Arduino / PlatformIO)</span><span>FastLED</span><span>WS2812B addressable LEDs</span><span>Custom serial protocol</span><span>Python (FastAPI) host bridge</span>
+      </div>
+    </div>
+  </section>
+
   <section id="sp-next">
-    <div class="label">06 · What's next</div>
+    <div class="label">07 · What's next</div>
     <div>
       <h2>Coaching you through your own set, live</h2>
       <div class="next">
