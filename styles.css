@@ -225,3 +225,7 @@ footer { border-top: 1px solid var(--rule); padding-top: 28px; font: 400 12.5px/
 @media (min-width: 900px) { .projects-intro .lede { white-space: nowrap; } }
 section.no-label { grid-template-columns: minmax(0, 1fr); }
 .section-title { text-align: center; font-size: 22px; font-weight: 600; letter-spacing: -.01em; margin: 0 0 28px; }
+.resume-cta { justify-items: center; padding-block: 40px 72px; }
+.resume-link { display: inline-flex; align-items: center; gap: 8px; font: 600 16px/1 var(--sans); color: var(--ground); background: var(--ink); padding: 14px 22px; border-radius: 999px; text-decoration: none; transition: transform .2s ease; }
+.resume-link:hover, .resume-link:focus-visible { transform: translateY(-2px); outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .resume-link { transition: none; } .resume-link:hover { transform: none; } }
