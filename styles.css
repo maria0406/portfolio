@@ -105,7 +105,7 @@ footer { border-top: 1px solid var(--rule); padding-top: 28px; font: 400 12.5px/
 
 
 /* Portfolio nav + project headers */
-.topnav { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: flex-end; gap: 10px 24px; padding-bottom: 40px; }
+.topnav { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center; gap: 10px 24px; padding-bottom: 40px; }
 .topnav .name { font-weight: 600; font-size: 15px; }
 .topnav nav { display: flex; flex-wrap: wrap; gap: 6px 20px; font: 500 12.5px/1.4 var(--mono); }
 .topnav a { color: var(--ink-2); text-decoration: none; border-bottom: 1px solid var(--rule); }
