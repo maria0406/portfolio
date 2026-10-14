@@ -223,3 +223,4 @@ footer { border-top: 1px solid var(--rule); padding-top: 28px; font: 400 12.5px/
 .projects-intro .lede { margin-inline: auto; }
 .projects-intro .lede { max-width: none; }
 @media (min-width: 900px) { .projects-intro .lede { white-space: nowrap; } }
+section.no-label { grid-template-columns: minmax(0, 1fr); }
