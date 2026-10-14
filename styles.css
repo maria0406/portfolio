@@ -234,3 +234,6 @@ section.no-label { grid-template-columns: minmax(0, 1fr); }
 /* Project pages: section number sits above the content, which spans the full width */
 .project section { grid-template-columns: minmax(0, 1fr); gap: 14px 0; }
 .project section .label { padding-top: 0; }
+
+/* Project pages: let text fill the full width of each section */
+.project p, .project .why ul, .project .build ul, .project .next ul, .project .demo .cap, .project .hero .pitch { max-width: none; }
