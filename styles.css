@@ -246,6 +246,43 @@ section.no-label { grid-template-columns: minmax(0, 1fr); }
 .card-logo { display: grid; place-items: center; background: #FFFFFF; padding: 28px; }
 .card-logo img { max-width: 60%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
 
+/* Collapsible case-study sections: label + title row, click to expand */
+section.fold { display: block; padding-block: 0; }
+.fold summary {
+  list-style: none; cursor: pointer;
+  display: grid; align-items: baseline;
+  grid-template-columns: clamp(140px, 14vw, 200px) minmax(0, 1fr) auto;
+  gap: 0 clamp(32px, 4vw, 64px);
+  padding-block: 28px;
+}
+.fold summary::-webkit-details-marker { display: none; }
+.fold summary h2 { transition: color .15s ease; }
+.fold summary:hover h2 { color: var(--accent-ink); }
+.fold summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 6px; }
+.fold-icon { position: relative; width: 14px; height: 14px; align-self: center; }
+.fold-icon::before, .fold-icon::after {
+  content: ""; position: absolute; left: 0; top: 6px; width: 14px; height: 2px;
+  background: var(--ink-2); transition: transform .2s ease;
+}
+.fold-icon::after { transform: rotate(90deg); }
+.fold details[open] .fold-icon::after { transform: rotate(0deg); }
+.fold summary:hover .fold-icon::before, .fold summary:hover .fold-icon::after { background: var(--accent); }
+.fold-body {
+  display: grid; grid-template-columns: clamp(140px, 14vw, 200px) minmax(0, 1fr);
+  gap: 0 clamp(32px, 4vw, 64px); padding-bottom: 48px;
+}
+.fold-body > div { grid-column: 2; }
+.fold-body .lede:first-child { margin-top: 0; }
+@media (max-width: 820px) {
+  .fold summary { grid-template-columns: minmax(0, 1fr) auto; gap: 8px 16px; padding-block: 24px; }
+  .fold summary .label { grid-column: 1; }
+  .fold summary h2 { grid-column: 1; grid-row: 2; }
+  .fold-icon { grid-column: 2; grid-row: 1 / span 2; }
+  .fold-body { grid-template-columns: minmax(0, 1fr); padding-bottom: 36px; }
+  .fold-body > div { grid-column: 1; }
+}
+@media (prefers-reduced-motion: reduce) { .fold-icon::before, .fold-icon::after, .fold summary h2 { transition: none; } }
+
 /* Make the thumbnail call to action read as a button */
 .thumb-cta { justify-self: start; display: inline-flex; align-items: center; gap: 6px; font: 600 16px/1 var(--sans); color: #FFFFFF; background: #1F1C18; padding: 12px 18px; border-radius: 999px; box-shadow: 0 10px 24px -14px rgba(0, 0, 0, .6); transition: transform .15s ease, background .15s ease; }
 .thumb:hover .thumb-cta, .thumb:focus-visible .thumb-cta { color: #FFFFFF; background: #000000; transform: translateY(-1px); }

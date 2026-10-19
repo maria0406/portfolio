@@ -46,143 +46,208 @@
     </div>
   </section>
 
-  <section id="sp-demo">
-    <div class="label">Demo</div>
-    <figure class="demo">
-      <video controls muted playsinline preload="metadata" poster="set-prep-demo-poster.jpg">
-        <source src="set-prep-demo.mp4" type="video/mp4">
-      </video>
-    </figure>
+  <section id="sp-demo" class="fold">
+    <details>
+      <summary>
+        <span class="label">00 · Demo</span>
+        <h2>See it in action</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <figure class="demo">
+            <video controls muted playsinline preload="metadata" poster="set-prep-demo-poster.jpg">
+              <source src="set-prep-demo.mp4" type="video/mp4">
+            </video>
+          </figure>
+        </div>
+      </div>
+    </details>
   </section>
 
-  <section id="sp-problem">
-    <div class="label">02 · Problem</div>
-    <div>
-      <h2>Prepping a set takes longer than playing it</h2>
-      <p class="lede">You have to work out which songs mix well together, then decide where in each song to start the blend, when to swap the bass and when to filter out.</p>
-      <div class="why">
-        <h3>Why it's hard</h3>
-        <ul>
-          <li>rekordbox can sort by BPM or by key, but not both at once.</li>
-          <li>It doesn't tell you what to do at each transition.</li>
-          <li>Beginners learn from tutorial videos that use someone else's songs, so the timing never matches their own tracks.</li>
-        </ul>
+  <section id="sp-problem" class="fold">
+    <details>
+      <summary>
+        <span class="label">02 · Problem</span>
+        <h2>Prepping a set takes skill</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <p class="lede">The biggest gap I've found, for myself and for other people getting into DJing, is that you don't know where to start. You can learn what every control on the deck does, but once you load a song you don't know what to move, when to move it, or what you're listening for.</p>
+          <div class="why">
+            <h3>Why it's hard</h3>
+            <ul>
+              <li>Most beginners watch a couple of videos and try to pick it up from there, using someone else's songs.</li>
+              <li>One of the first rules you learn is to mix songs with compatible keys and BPMs, but rekordbox only sorts by one or the other.</li>
+              <li>Even with the right songs, mixing by feel is hard without a music background, because you don't know what to listen for, like a build-up gaining speed before the drop.</li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </div>
+    </details>
   </section>
 
-  <section id="sp-who">
-    <div class="label">03 · Who it's for</div>
-    <div>
-      <h2>Student DJs at UT on beginner controllers</h2>
-      <p class="lede">They play rekordbox on controllers like the Pioneer DDJ-FLX4 and want a set they can actually play, plus a way to learn the moves on their own tracks.</p>
-    </div>
+  <section id="sp-who" class="fold">
+    <details>
+      <summary>
+        <span class="label">03 · Who it's for</span>
+        <h2>Student DJs at UT on beginner controllers</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <p class="lede">They play rekordbox on controllers like the Pioneer DDJ-FLX4 and want a set they can actually play, plus a way to learn the moves on their own tracks.</p>
+        </div>
+      </div>
+    </details>
   </section>
 
-  <section id="sp-solution">
-    <div class="label">04 · What it does</div>
-    <div>
-      <h2>Order the set, mark every transition, then teach the moves</h2>
-      <div class="features">
+  <section id="sp-solution" class="fold">
+    <details>
+      <summary>
+        <span class="label">04 · What it does</span>
+        <h2>Order the set, mark every transition, then teach the moves</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
         <div>
-          <h3>Orders the set</h3>
-          <p>Reads a playlist straight from the local rekordbox library and analyzes each track's tempo, beat grid, key, phrases and energy. Then it orders the tracks by BPM and key together, with energy shaped to a set arc.</p>
-        </div>
-        <div>
-          <h3>Marks every transition</h3>
-          <p>Places named, color-coded cues: MIX IN, MIX OUT, BASS SWAP, FILTER, DROP and an 8-bar safety loop. They export back to rekordbox as XML. On a 12-track test set, all 12 tracks imported with every cue at the exact time and name.</p>
-        </div>
-        <div>
-          <h3>Move Coach</h3>
-          <p>An animated controller in the FLX4's layout shows which knob or fader to move, which way and when, timed to the bars and phrases of the actual song. A single timing engine drives both the animation and an in-browser audio mix, so the demo you watch always matches what you hear.</p>
-        </div>
-        <div>
-          <h3>Graded practice library</h3>
-          <p>300 Creative Commons house tracks from 128 artists, scored on how hard they are to mix (intro and outro length, tempo stability, energy changes). They're split into 5 levels and paired into lessons, from "your first blend" to "hard transitions".</p>
+          <div class="features">
+            <div>
+              <h3>Orders the set</h3>
+              <p>Reads a playlist straight from the local rekordbox library and analyzes each track's tempo, beat grid, key, phrases and energy. Then it orders the tracks by BPM and key together, with energy shaped to a set arc.</p>
+            </div>
+            <div>
+              <h3>Marks every transition</h3>
+              <p>Places named, color-coded cues: MIX IN, MIX OUT, BASS SWAP, FILTER, DROP and an 8-bar safety loop. They export back to rekordbox as XML. On a 12-track test set, all 12 tracks imported with every cue at the exact time and name.</p>
+            </div>
+            <div>
+              <h3>Move Coach</h3>
+              <p>An animated controller in the FLX4's layout shows which knob or fader to move, which way and when, timed to the bars and phrases of the actual song. A single timing engine drives both the animation and an in-browser audio mix, so the demo you watch always matches what you hear.</p>
+            </div>
+            <div>
+              <h3>Graded practice library</h3>
+              <p>300 Creative Commons house tracks from 128 artists, scored on how hard they are to mix (intro and outro length, tempo stability, energy changes). They're split into 5 levels and paired into lessons, from "your first blend" to "hard transitions".</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </details>
   </section>
 
-  <section id="sp-build">
-    <div class="label">05 · How I built it</div>
-    <div>
-      <h2>Local-first, legally sourced, tested against rekordbox itself</h2>
-      <div class="build">
+  <section id="sp-build" class="fold">
+    <details>
+      <summary>
+        <span class="label">05 · How I built it</span>
+        <h2>Local-first, legally sourced, tested against rekordbox itself</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
         <div>
-          <h3>Stack</h3>
-          <p>Python with FastAPI, librosa for audio analysis and pyrekordbox to read the rekordbox database. The front end is vanilla JavaScript, SVG and the Web Audio API. Everything runs locally, so music never leaves the DJ's laptop.</p>
-        </div>
-        <div>
-          <h3>Research first</h3>
-          <p>I compared where a learning tool could legally get DJ-ready audio: Creative Commons libraries, research datasets, streaming partner programs and royalty-free catalogs. Most major catalogs forbid analyzing or redistributing their tracks, so I built on Creative Commons netlabel releases from the Internet Archive.</p>
-        </div>
-        <div>
-          <h3>Tested against the real thing</h3>
-          <p>I imported the generated cues into rekordbox 7 and checked them against its database, then fixed the problems that turned up. A 12-track set now imports with every cue at the exact time and name.</p>
+          <div class="build">
+            <div>
+              <h3>Stack</h3>
+              <p>Python with FastAPI, librosa for audio analysis and pyrekordbox to read the rekordbox database. The front end is vanilla JavaScript, SVG and the Web Audio API. Everything runs locally, so music never leaves the DJ's laptop.</p>
+            </div>
+            <div>
+              <h3>Research first</h3>
+              <p>I compared where a learning tool could legally get DJ-ready audio: Creative Commons libraries, research datasets, streaming partner programs and royalty-free catalogs. Most major catalogs forbid analyzing or redistributing their tracks, so I built on Creative Commons netlabel releases from the Internet Archive.</p>
+            </div>
+            <div>
+              <h3>Tested against the real thing</h3>
+              <p>I imported the generated cues into rekordbox 7 and checked them against its database, then fixed the problems that turned up. A 12-track set now imports with every cue at the exact time and name.</p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </details>
   </section>
 
-  <section id="sp-cue-light">
-    <div class="label">06 · Cue light</div>
-    <div>
-      <h2>Beat-Synced Cue Light</h2>
-      <p class="lede">A small ESP32-powered LED ring that sits next to the DJ controller and turns the set plan into light, so a DJ can keep their eyes on the decks instead of the laptop.</p>
-      <div class="features three">
+  <section id="sp-cue-light" class="fold">
+    <details>
+      <summary>
+        <span class="label">06 · Hardware extension</span>
+        <h2>Beat-Synced Cue Light</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
         <div>
-          <h3>On the beat</h3>
-          <p>The ring pulses with every beat, stronger on the first beat of each bar, in time with the track that's playing.</p>
-        </div>
-        <div>
-          <h3>Follows the music</h3>
-          <p>Its color and brightness follow the track's energy and section: calmer in a breakdown, fuller at a drop.</p>
-        </div>
-        <div>
-          <h3>Counts down to the next move</h3>
-          <p>Eight bars before a cue (MIX OUT, BASS SWAP, FAKE DROP…) an amber arc starts shrinking around the ring, then flashes the cue's color at the moment to act.</p>
+          <p class="lede">A small ESP32-powered LED ring that sits next to the DJ controller and turns the set plan into light, so a DJ can keep their eyes on the decks instead of the laptop.</p>
+          <div class="features three">
+            <div>
+              <h3>On the beat</h3>
+              <p>The ring pulses with every beat, stronger on the first beat of each bar, in time with the track that's playing.</p>
+            </div>
+            <div>
+              <h3>Follows the music</h3>
+              <p>Its color and brightness follow the track's energy and section: calmer in a breakdown, fuller at a drop.</p>
+            </div>
+            <div>
+              <h3>Counts down to the next move</h3>
+              <p>Eight bars before a cue (MIX OUT, BASS SWAP, FAKE DROP…) an amber arc starts shrinking around the ring, then flashes the cue's color at the moment to act.</p>
+            </div>
+          </div>
+          <div class="build">
+            <div>
+              <h3>How it works</h3>
+              <ul>
+                <li>The laptop app already knows each track's beat positions, energy curve and cue times. It streams a compact timing message to the ESP32 over USB serial about 10 times a second: tempo, time to the next beat, position in the bar, energy, and the next cue with its countdown.</li>
+                <li>The ESP32 runs its own beat clock between messages, so the light stays smooth and on time even if a message arrives late. It renders effects at 60 frames per second with the FastLED library.</li>
+                <li>The same timing engine that drives the on-screen Move Coach also drives the light. In practice mode it follows the app's own audio playback; during a live set it follows the controller's button presses.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="skills" aria-label="Built with">
+            <span>ESP32</span><span>C++ (Arduino / PlatformIO)</span><span>FastLED</span><span>WS2812B addressable LEDs</span><span>Custom serial protocol</span><span>Python (FastAPI) host bridge</span>
+          </div>
         </div>
       </div>
-      <div class="build">
-        <div>
-          <h3>How it works</h3>
-          <ul>
-            <li>The laptop app already knows each track's beat positions, energy curve and cue times. It streams a compact timing message to the ESP32 over USB serial about 10 times a second: tempo, time to the next beat, position in the bar, energy, and the next cue with its countdown.</li>
-            <li>The ESP32 runs its own beat clock between messages, so the light stays smooth and on time even if a message arrives late. It renders effects at 60 frames per second with the FastLED library.</li>
-            <li>The same timing engine that drives the on-screen Move Coach also drives the light. In practice mode it follows the app's own audio playback; during a live set it follows the controller's button presses.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="skills" aria-label="Built with">
-        <span>ESP32</span><span>C++ (Arduino / PlatformIO)</span><span>FastLED</span><span>WS2812B addressable LEDs</span><span>Custom serial protocol</span><span>Python (FastAPI) host bridge</span>
-      </div>
-    </div>
+    </details>
   </section>
 
-  <section id="sp-next">
-    <div class="label">07 · What's next</div>
-    <div>
-      <h2>Coaching you through your own set, live</h2>
-      <div class="next">
+  <section id="sp-next" class="fold">
+    <details>
+      <summary>
+        <span class="label">07 · What's next</span>
+        <h2>Coaching you through your own set, live</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
         <div>
-          <h3>Live coaching over rekordbox <span class="status">In hardware testing</span></h3>
-          <p>A working prototype that reads the FLX4's MIDI and coaches you through your own set in rekordbox while you play. It's now being tested on the controller.</p>
-        </div>
-        <div>
-          <h3>Practice levels in the app <span class="status">In progress</span></h3>
-          <p>Bringing the graded lessons into practice mode as a level-by-level path.</p>
+          <div class="next">
+            <div>
+              <h3>Live coaching over rekordbox <span class="status">In hardware testing</span></h3>
+              <p>A working prototype that reads the FLX4's MIDI and coaches you through your own set in rekordbox while you play. It's now being tested on the controller.</p>
+            </div>
+          </div>
+          <div class="skills" aria-label="Skills shown">
+            <span>Product scoping and tradeoffs</span><span>Licensing and legal research</span><span>Audio signal processing</span>
+            <span>Reverse-engineering rekordbox XML and database</span><span>Interactive animation</span><span>Test-driven development</span>
+          </div>
         </div>
       </div>
-      <div class="skills" aria-label="Skills shown">
-        <span>Product scoping and tradeoffs</span><span>Licensing and legal research</span><span>Audio signal processing</span>
-        <span>Reverse-engineering rekordbox XML and database</span><span>Interactive animation</span><span>Test-driven development</span>
-      </div>
-    </div>
+    </details>
   </section>
 
   </article>
 
 </main>
+<script>
+  // Open the collapsed section a link points to (e.g. set-prep.html#sp-cue-light)
+  function openFromHash() {
+    var el = location.hash && document.querySelector(location.hash);
+    var d = el && el.querySelector('details');
+    if (d) { d.open = true; el.scrollIntoView(); }
+  }
+  addEventListener('hashchange', openFromHash);
+  openFromHash();
+
+  // Stop the demo video when its section is collapsed
+  document.querySelectorAll('.fold details').forEach(function (d) {
+    d.addEventListener('toggle', function () {
+      if (!d.open) d.querySelectorAll('video').forEach(function (v) { v.pause(); });
+    });
+  });
+</script>
 </body>
 </html>

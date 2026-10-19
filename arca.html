@@ -64,49 +64,89 @@
     </div>
   </section>
 
-  <section id="arca-problem">
-    <div class="label">02 · Problem</div>
-    <div>
-      <h2>When a home battery faults, both usual options are bad</h2>
-      <p class="lede">Base Power runs a growing fleet of home batteries in Texas. When one faults, the usual options are a truck roll before anyone knows the cause, which is slow and expensive, or waiting until the problem gets serious, which is risky. Neither scales as the fleet grows.</p>
-    </div>
-  </section>
-
-  <section id="arca-solution">
-    <div class="label">03 · What it does</div>
-    <div>
-      <h2>From telemetry to a closed case, with a person approving every step</h2>
-      <ol class="flow">
-        <li><span class="k">Detect</span><p>Deterministic detectors assign each fault to one of a fixed set of root causes: thermal event, firmware mismatch, wiring or install error, or hardware defect.</p></li>
-        <li><span class="k">Diagnose</span><p>It writes a hypothesis for the root cause. By default this comes from the detectors, and it can switch to a live LLM call when an API key is set.</p></li>
-        <li><span class="k">Plan behind a policy gate</span><p>A planner proposes the cheapest safe fix, and a deterministic gate controls who can approve what. Cases that are thermal or have an unknown cause are blocked from any remote action.</p></li>
-        <li><span class="k">Human in the loop</span><p>Staff approve or reject each step. Approving a dispatch schedules a technician visit with a safety checklist.</p></li>
-        <li><span class="k">Audit</span><p>Every diagnosis, approval and outcome goes on the case timeline, and an engineer closes the case out.</p></li>
-        <li><span class="k">Score itself</span><p>The results are checked against the known answers for a test fleet.</p></li>
-      </ol>
-      <div class="result">
-        <div><div class="num">40 / 47</div><div class="cap">test-fleet cases matched (team result)</div></div>
-        <div><div class="num">0</div><div class="cap">wrong hardware pulls (team result)</div></div>
-        <div><div class="num">147</div><div class="cap">automated tests, written by me</div></div>
+  <section id="arca-demo" class="fold">
+    <details>
+      <summary>
+        <span class="label">00 · Demo</span>
+        <h2>See it in action</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <figure class="demo">
+            <video controls muted playsinline preload="metadata" poster="arca-demo-poster.jpg">
+              <source src="arca-demo.mp4" type="video/mp4">
+            </video>
+          </figure>
+        </div>
       </div>
-    </div>
+    </details>
   </section>
 
-  <section id="arca-role">
-    <div class="label">04 · My role</div>
-    <div>
-      <h2>Front end, roles and integration</h2>
-      <ul class="role">
-        <li>Built the web app: login with separate staff and technician roles, the fleet dashboard, the case workspace and the technician dashboard.</li>
-        <li>Wrote the dashboard server in plain Node <code>http</code>, with no framework.</li>
-        <li>Connected the team's work. I wired my UI to a teammate's response engine and merged two parallel pipelines into one fleet and one engine, so a case ID refers to the same case on every page. I also added an Austin / All Texas filter.</li>
-        <li>Wrote the 147 automated tests.</li>
-      </ul>
-      <h3 style="margin-top: 26px">Stack</h3>
-      <div class="chips"><span>TypeScript</span><span>Node.js (node:http)</span><span>MCP SDK</span><span>Zod</span><span>Claude API</span><span>ERCOT Public API</span><span>node:test</span></div>
-      <h3 style="margin-top: 22px">Skills shown</h3>
-      <div class="chips"><span>Agent orchestration</span><span>Human-in-the-loop approvals</span><span>Role-based access</span><span>Full-stack TypeScript, no framework</span><span>Integrating teammates' code on a deadline</span><span>MCP tools on live data</span></div>
-    </div>
+  <section id="arca-problem" class="fold">
+    <details>
+      <summary>
+        <span class="label">02 · Problem</span>
+        <h2>When a home battery faults, both usual options are bad</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <p class="lede">Base Power runs a growing fleet of home batteries in Texas. When one faults, the usual options are a truck roll before anyone knows the cause, which is slow and expensive, or waiting until the problem gets serious, which is risky. Neither scales as the fleet grows.</p>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="arca-solution" class="fold">
+    <details>
+      <summary>
+        <span class="label">03 · What it does</span>
+        <h2>From telemetry to a closed case, with a person approving every step</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <ol class="flow">
+            <li><span class="k">Detect</span><p>Deterministic detectors assign each fault to one of a fixed set of root causes: thermal event, firmware mismatch, wiring or install error, or hardware defect.</p></li>
+            <li><span class="k">Diagnose</span><p>It writes a hypothesis for the root cause. By default this comes from the detectors, and it can switch to a live LLM call when an API key is set.</p></li>
+            <li><span class="k">Plan behind a policy gate</span><p>A planner proposes the cheapest safe fix, and a deterministic gate controls who can approve what. Cases that are thermal or have an unknown cause are blocked from any remote action.</p></li>
+            <li><span class="k">Human in the loop</span><p>Staff approve or reject each step. Approving a dispatch schedules a technician visit with a safety checklist.</p></li>
+            <li><span class="k">Audit</span><p>Every diagnosis, approval and outcome goes on the case timeline, and an engineer closes the case out.</p></li>
+            <li><span class="k">Score itself</span><p>The results are checked against the known answers for a test fleet.</p></li>
+          </ol>
+          <div class="result">
+            <div><div class="num">40 / 47</div><div class="cap">test-fleet cases matched (team result)</div></div>
+            <div><div class="num">0</div><div class="cap">wrong hardware pulls (team result)</div></div>
+            <div><div class="num">147</div><div class="cap">automated tests, written by me</div></div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="arca-role" class="fold">
+    <details>
+      <summary>
+        <span class="label">04 · My role</span>
+        <h2>Front end, roles and integration</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <ul class="role">
+            <li>Built the web app: login with separate staff and technician roles, the fleet dashboard, the case workspace and the technician dashboard.</li>
+            <li>Wrote the dashboard server in plain Node <code>http</code>, with no framework.</li>
+            <li>Connected the team's work. I wired my UI to a teammate's response engine and merged two parallel pipelines into one fleet and one engine, so a case ID refers to the same case on every page. I also added an Austin / All Texas filter.</li>
+            <li>Wrote the 147 automated tests.</li>
+          </ul>
+          <h3 style="margin-top: 26px">Stack</h3>
+          <div class="chips"><span>TypeScript</span><span>Node.js (node:http)</span><span>MCP SDK</span><span>Zod</span><span>Claude API</span><span>ERCOT Public API</span><span>node:test</span></div>
+          <h3 style="margin-top: 22px">Skills shown</h3>
+          <div class="chips"><span>Agent orchestration</span><span>Human-in-the-loop approvals</span><span>Role-based access</span><span>Full-stack TypeScript, no framework</span><span>Integrating teammates' code on a deadline</span><span>MCP tools on live data</span></div>
+        </div>
+      </div>
+    </details>
   </section>
 
   </article>
