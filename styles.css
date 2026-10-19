@@ -243,3 +243,5 @@ section.no-label { grid-template-columns: minmax(0, 1fr); }
 .card-eyebrow { font: 500 11.5px/1.4 var(--mono); letter-spacing: .03em; text-transform: uppercase; color: var(--accent-ink); }
 .card-text .card-body { padding-top: 26px; }
 .card-body > p:not(.pitch) { font-size: 14px; }
+.card-logo { display: grid; place-items: center; background: #FFFFFF; padding: 28px; }
+.card-logo img { max-width: 60%; max-height: 100%; width: auto; height: auto; object-fit: contain; }

@@ -27,3 +27,4 @@ pioneer-dj.png         Pioneer DJ apple-touch-icon (pioneerdj.com)
 # Logo sources
 
 See the comment block above for each file's source URL.
+- ieee-pes.png — provided by site owner (Downloads/ieee-pes-logo.webp)
