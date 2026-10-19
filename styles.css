@@ -245,3 +245,10 @@ section.no-label { grid-template-columns: minmax(0, 1fr); }
 .card-body > p:not(.pitch) { font-size: 14px; }
 .card-logo { display: grid; place-items: center; background: #FFFFFF; padding: 28px; }
 .card-logo img { max-width: 60%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+
+/* Make the thumbnail call to action read as a button */
+.thumb-cta { justify-self: start; display: inline-flex; align-items: center; gap: 6px; font: 600 16px/1 var(--sans); color: #FFFFFF; background: #1F1C18; padding: 12px 18px; border-radius: 999px; box-shadow: 0 10px 24px -14px rgba(0, 0, 0, .6); transition: transform .15s ease, background .15s ease; }
+.thumb:hover .thumb-cta, .thumb:focus-visible .thumb-cta { color: #FFFFFF; background: #000000; transform: translateY(-1px); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .thumb-cta { background: #3A342D; } }
+:root[data-theme="dark"] .thumb-cta { background: #3A342D; }
+@media (prefers-reduced-motion: reduce) { .thumb-cta { transition: none; } .thumb:hover .thumb-cta { transform: none; } }
