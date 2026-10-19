@@ -237,3 +237,6 @@ section.no-label { grid-template-columns: minmax(0, 1fr); }
 
 /* Project pages: let text fill the full width of each section */
 .project p, .project .why ul, .project .build ul, .project .next ul, .project .demo .cap, .project .hero .pitch { max-width: none; }
+.cards { grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
+.card-static:hover { transform: none; box-shadow: none; }
+.card .skills { margin-top: 0; }
