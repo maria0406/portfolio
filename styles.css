@@ -240,3 +240,6 @@ section.no-label { grid-template-columns: minmax(0, 1fr); }
 .cards { grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); }
 .card-static:hover { transform: none; box-shadow: none; }
 .card .skills { margin-top: 0; }
+.card-eyebrow { font: 500 11.5px/1.4 var(--mono); letter-spacing: .03em; text-transform: uppercase; color: var(--accent-ink); }
+.card-text .card-body { padding-top: 26px; }
+.card-body > p:not(.pitch) { font-size: 14px; }
