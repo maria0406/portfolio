@@ -167,38 +167,53 @@
     <details>
       <summary>
         <span class="label">06 · Hardware extension</span>
-        <h2>Beat-Synced Cue Light</h2>
+        <h2>Phrase Countdown Light</h2>
         <span class="fold-icon" aria-hidden="true"></span>
       </summary>
       <div class="fold-body">
         <div>
-          <p class="lede">A small ESP32-powered LED ring that sits next to the DJ controller and turns the set plan into light, so a DJ can keep their eyes on the decks instead of the laptop.</p>
+          <p class="lede">A ring of 16 LEDs that sits on the DJ controller and counts down the last 8 bars before the next planned transition. Move Coach shows <em>which</em> knob to move; the light shows <em>when</em>, right where the DJ is already looking.</p>
           <div class="features three">
             <div>
-              <h3>On the beat</h3>
-              <p>The ring pulses with every beat, stronger on the first beat of each bar, in time with the track that's playing.</p>
+              <h3>Reads at a glance</h3>
+              <p>Each LED is half a bar, so a full ring is exactly 8 bars. One LED goes out every 2 beats, clockwise from 12 o'clock.</p>
             </div>
             <div>
-              <h3>Follows the music</h3>
-              <p>Its color and brightness follow the track's energy and section: calmer in a breakdown, fuller at a drop.</p>
+              <h3>Lit in the cue's color</h3>
+              <p>Green to mix in, orange to swap the bass, red to get out. The colors match the cue markers on rekordbox's waveform, so the DJ knows which move is coming as well as when.</p>
             </div>
             <div>
-              <h3>Counts down to the next move</h3>
-              <p>Eight bars before a cue (MIX OUT, BASS SWAP, FAKE DROP…) an amber arc starts shrinking around the ring, then flashes the cue's color at the moment to act.</p>
+              <h3>Lands on the beat</h3>
+              <p>In the last bar the ring pulses on each beat, 4, 3, 2, 1, then flashes the full ring on the cue itself.</p>
             </div>
           </div>
           <div class="build">
             <div>
               <h3>How it works</h3>
               <ul>
-                <li>The laptop app already knows each track's beat positions, energy curve and cue times. It streams a compact timing message to the ESP32 over USB serial about 10 times a second: tempo, time to the next beat, position in the bar, energy, and the next cue with its countdown.</li>
-                <li>The ESP32 runs its own beat clock between messages, so the light stays smooth and on time even if a message arrives late. It renders effects at 60 frames per second with the FastLED library.</li>
-                <li>The same timing engine that drives the on-screen Move Coach also drives the light. In practice mode it follows the app's own audio playback; during a live set it follows the controller's button presses.</li>
+                <li>rekordbox has no public playback API, so the laptop app works out each deck's position from the DDJ-FLX4's own MIDI (load, play, cue, tempo), listening alongside rekordbox. That is the same timing engine that runs Move Coach.</li>
+                <li>The laptop owns all the timing. Ten times a second it sends the board one plain-text line over USB serial: time to the next cue, beat length and color. The board only draws it, so there is one timing source and nothing to drift apart.</li>
+                <li>A Seeed XIAO ESP32-C3 drives the ring at 60 frames per second. An SN74AHCT125 lifts its 3.3 V data line to the 5 V the WS2812B LEDs need.</li>
+                <li>Everything runs from one laptop USB port. Before each frame the firmware estimates the ring's current and scales it down to stay under 300 mA, and the ring stays dark until USB enumeration allows more than 100 mA.</li>
+                <li>A Python bench tool drives the ring at any tempo with fake cues, so the light can be tested against a metronome without rekordbox or a controller.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Where it stands <span class="status">Bench build next</span></h3>
+              <ul>
+                <li>The firmware compiles for the ESP32-C3. It has not run on hardware yet.</li>
+                <li>The KiCad schematic, with custom symbols for the XIAO and the LED ring, passes the electrical rules check with 0 violations, and its netlist matches the design's net table pin for pin.</li>
+                <li>Every part was checked against its datasheet, and the whole build costs about $25 in hand-solderable parts.</li>
               </ul>
             </div>
           </div>
+          <figure class="demo schematic">
+            <img src="countdown-light-schematic.png" width="2320" height="1070" loading="lazy" decoding="async" alt="KiCad schematic of the Phrase Countdown Light. The XIAO ESP32-C3 (U1) sends DATA_3V3 from pin D10 into gate A of the SN74AHCT125 (U2A). Gate A's 5 V output goes through a 330 ohm resistor (R1) to the DIN pin of the 16-LED NeoPixel ring (LED1). A 6 mm tact switch (SW1) connects pin D1 to ground. A 1000 µF capacitor (C1) and a 100 nF capacitor (C2) sit across +5V and ground. The three spare gates U2B to U2D have their inputs tied to ground and are disabled.">
+            <figcaption class="cap">KiCad schematic. One data line runs from the XIAO through the level shifter and R1 to the ring, all on USB 5 V. The three spare gates are tied off.</figcaption>
+          </figure>
+          <p class="more"><a href="https://app.notion.com/p/Phrase-Countdown-Light-a-cue-countdown-on-the-DJ-controller-40fd8d4faccd813990cbda511ffc81bb" target="_blank" rel="noopener">Read the full design doc ↗</a> The research behind each decision, the bill of materials, the power budget, the serial protocol and the bench test plan.</p>
           <div class="skills" aria-label="Built with">
-            <span>ESP32</span><span>C++ (Arduino / PlatformIO)</span><span>FastLED</span><span>WS2812B addressable LEDs</span><span>Custom serial protocol</span><span>Python (FastAPI) host bridge</span>
+            <span>ESP32-C3</span><span>C++ (Arduino / PlatformIO)</span><span>WS2812B addressable LEDs</span><span>KiCad schematic capture</span><span>Power budgeting</span><span>Custom serial protocol</span><span>Python bench tooling</span>
           </div>
         </div>
       </div>
