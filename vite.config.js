@@ -10,6 +10,7 @@ export default defineConfig({
       input: {
         main: fileURLToPath(new URL('./index.html', import.meta.url)),
         projects: fileURLToPath(new URL('./projects.html', import.meta.url)),
+        ercotSb6: fileURLToPath(new URL('./ercot-sb6.html', import.meta.url)),
         setPrep: fileURLToPath(new URL('./set-prep.html', import.meta.url)),
         arca: fileURLToPath(new URL('./arca.html', import.meta.url)),
         about: fileURLToPath(new URL('./about.html', import.meta.url)),

@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="ERCOT AI Load and Texas SB 6: how data-center load growth is reshaping planning on the Texas grid, and how far Senate Bill 6 has gotten in managing it, as of November 17, 2026. An analysis by Maria Cruz.">
+  <title>ERCOT AI Load and Texas SB 6</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<main class="page">
+
+  <header class="topnav">
+    <nav class="tabs" aria-label="Site">
+      <a href="./">About me</a>
+      <a href="./#projects" aria-current="page">Projects</a>
+      <a href="https://maria0406.github.io/resume/maria_cruz_resume.pdf" target="_blank" rel="noopener">Resume<span class="ext" aria-hidden="true"> ↗</span></a>
+    </nav>
+  </header>
+
+  <a class="backlink" href="./#projects">← All projects</a>
+
+  <article class="project" id="ercot">
+  <style>
+    #ercot .thumb img { object-fit: contain; object-position: center; background: #FBFAF7; }
+    #ercot .result { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px 40px; background: var(--surface); border-radius: 14px; padding: 20px 22px; }
+    #ercot .result .num { font-size: 32px; font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; color: var(--ink); line-height: 1.1; }
+    #ercot .result .cap { font: 400 12.5px/1.4 var(--mono); color: var(--ink-3); }
+    #ercot .chart { margin-top: 26px; }
+    #ercot .chart img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--rule); background: #FBFAF7; }  </style>
+
+  <section class="hero" id="ercot-hero">
+    <div class="label">01 · ERCOT &amp; SB 6</div>
+    <div class="hero-body">
+      <div>
+        <h1 style="font-size: clamp(40px, 6vw, 64px)">ERCOT AI Load and Texas SB 6</h1>
+        <p class="pitch">How AI and data-center load growth is reshaping planning on the Texas grid, and how far Senate Bill 6 (2025) has gotten in managing it.</p>
+        <div class="meta">
+          <span><b>Status</b> As of Nov 17, 2026</span>
+          <span><b>Extends</b> “Drill, Baby, Drill?”, Vector Engineering Magazine</span>
+          <span><b>Stack</b> Python · pandas · matplotlib · Jupyter</span>
+          <!-- TODO: add GitHub repo link once github.com/maria0406/ercot-ai-load is public, e.g.
+          <span><b>Repo</b> <a href="https://github.com/maria0406/ercot-ai-load">maria0406/ercot-ai-load</a></span>
+          -->
+        </div>
+      </div>
+      <a class="thumb" href="#ercot-charts">
+        <img src="ercot-queue-vs-reality.png" width="1598" height="903" decoding="async" alt="Bar chart titled &quot;ERCOT's large-load queue rose from 56 GW to 474 GW; connected load barely moved.&quot; Queue bars climb from 56 GW in Sept 2024 and 63 GW in Dec 2024 (with a conflicting 70.5 GW value marked) to 205 GW in Oct 2025, 232 GW in Jan 2026, 410 GW in Mar 2026, 438 GW and then 474 GW (90% data centers) in mid-2026. Lines for load approved to energize (9.5 GW) and observed peak use (4.3 GW) stay along the bottom axis, 0.9% of the queue.">
+        <span class="thumb-cta">See the charts ↓</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="ercot-why" class="fold">
+    <details>
+      <summary>
+        <span class="label">02 · Why</span>
+        <h2>Putting numbers behind “Drill, Baby, Drill?”</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <p class="lede">My Vector Engineering Magazine article “Drill, Baby, Drill?” argued that if U.S. energy-infrastructure expansion is inevitable, the focus should be on preparing the grid for AI-driven demand. That article gave no numbers. This project adds them for one grid: ERCOT, which serves most of Texas and is operating under a new state law, Senate Bill 6 (2025).</p>
+          <p class="lede">The main finding: Texas's binding constraint is less about how much generation it can build and more about whether the grid can forecast, filter, and actually curtail the load it is promising to serve.</p>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="ercot-findings" class="fold">
+    <details>
+      <summary>
+        <span class="label">03 · Key findings</span>
+        <h2>A 474 GW queue, 4.3 GW of real load, and curtailment with no final rule</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <div class="result">
+            <div><div class="num">~474 GW</div><div class="cap">large-load queue, June 2026</div></div>
+            <div><div class="num">9,456 MW</div><div class="cap">approved to energize</div></div>
+            <div><div class="num">4,316 MW</div><div class="cap">observed peak, Aug 2026 (0.9% of queue)</div></div>
+          </div>
+          <div class="features">
+            <div>
+              <h3>The queue and the physical grid are far apart</h3>
+              <p>ERCOT's large-load (75 MW and up) queue grew from 56 GW (Sept 2024) to about 474 GW (June 2026), about 90% of it data centers. Only 9,456 MW has been approved to energize, and those loads peaked at 4,316 MW in August 2026: 0.9% of the queue and 46% of approved MW.</p>
+            </div>
+            <div>
+              <h3>Demand is rising, and energy is rising faster than peak</h3>
+              <p>Jan–Aug 2026 energy was 343.90 TWh, up 4.21% year over year, matching ERCOT's own figures. ERCOT reported an unofficial record peak of 91,134 MW on July 22, 2026 (its records page now shows 91,155 MW). The previous record was 85,508 MW in 2023.</p>
+            </div>
+            <div>
+              <h3>The discounted forecast was close on underlying demand</h3>
+              <p>ERCOT's 2025 adjusted forecast for 2026 was 94,650 MW. ERCOT estimates that without about 3,299 MW of crypto curtailment and about 492 MW of 4CP response, the record day would have hit 94,861 MW. The 2026 preliminary forecast (112,371 MW for 2026) ran about 18% above even that.</p>
+            </div>
+            <div>
+              <h3>Reliability depends on curtailment that has no final rule</h3>
+              <p>In ERCOT's Dec 2025 CDR, the summer reserve margin falls from 18.3% (2026) to −12.7% (2030) without SB 6 curtailment, and holds at 27–29% with it. NERC credits ERCOT with 13.3–53.1 GW of demand response and still rates it High Risk from 2029. Yet the firm-load-shed protocol (§39.170(a)) is “Not Started”, the demand-reduction service (§39.170(b)) won't be adopted before January 2027, and the backup-generation emergency threshold (§37.0561(e)) is unset. The interconnection rule (16 TAC §25.194) took effect Oct 8, 2026.</p>
+            </div>
+            <div>
+              <h3>Batch Zero, not fees, is doing the filtering</h3>
+              <p>Of the 494 GW Batch Zero universe (735 projects), 302.2 GW was excluded and only 66.4 GW is conditionally base load (Sept 3, 2026). The study is paused pending the Governor's audit, and reports are due Dec 10, 2026.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="ercot-charts" class="fold">
+    <details>
+      <summary>
+        <span class="label">04 · Charts</span>
+        <h2>Queue, record day, reserve margins and the Batch Zero funnel</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <figure class="demo chart">
+            <img src="ercot-queue-vs-reality.png" width="1598" height="903" loading="lazy" decoding="async" alt="Bar chart titled &quot;ERCOT's large-load queue rose from 56 GW to 474 GW; connected load barely moved.&quot; Queue bars climb from 56 GW in Sept 2024 and 63 GW in Dec 2024 (with a conflicting 70.5 GW value marked) to 205 GW in Oct 2025, 232 GW in Jan 2026, 410 GW in Mar 2026, 438 GW and then 474 GW (90% data centers) in mid-2026. Lines for load approved to energize (9.5 GW) and observed peak use (4.3 GW) stay along the bottom axis, 0.9% of the queue.">
+            <figcaption class="cap">Queue vs. reality. A 474 GW queue against 9.5 GW approved and 4.3 GW operating. The conflicting Dec 2024 value (63 vs. 70.5 GW) is shown, not resolved.</figcaption>
+          </figure>
+          <figure class="demo chart">
+            <img src="ercot-peak-day-2026.png" width="1891" height="732" loading="lazy" decoding="async" alt="Dot chart titled &quot;About 3.8 GW of flexible load, nearly all crypto, kept the record below forecast.&quot; It compares the previous record of 85,508 MW (Aug 10, 2023), the unofficial July 22, 2026 peak of 91,134 MW with stacked bars for about 3,299 MW of crypto curtailment and about 492 MW of 4CP response, ERCOT's estimate of 94,861 MW without that response, the 2025 adjusted forecast of 94,650 MW, and the 2026 preliminary forecast of 112,371 MW.">
+            <figcaption class="cap">Record day. About 3.8 GW of flexibility, nearly all crypto, separated the unofficial 91.1 GW peak from the ~94.9 GW counterfactual.</figcaption>
+          </figure>
+          <figure class="demo chart">
+            <img src="ercot-reserve-margins.png" width="1494" height="1015" loading="lazy" decoding="async" alt="Line chart titled &quot;Without SB 6 curtailment, reserve margins go negative by 2028,&quot; for 2026 to 2030. The base case falls from about 18% to −12.7% by 2030 (−19.2% at the 9 pm net-load hour). With SB 6 curtailment assumed from summer 2027, the high bookend reaches 35.0%, the mid case 27.0%, and the low bookend 14.0%, with net-load-hour values of 9.2% in 2029 and 8.7% in 2030 below the 13.75% target line.">
+            <figcaption class="cap">Reserve margins. Base case vs. the SB 6 curtailment scenarios in ERCOT's Dec 2025 CDR, against the 13.75% target.</figcaption>
+          </figure>
+          <figure class="demo chart">
+            <img src="ercot-batch-zero-funnel.png" width="1746" height="846" loading="lazy" decoding="async" alt="Horizontal bar chart titled &quot;From 494 GW of requests to 4.3 GW of observed load.&quot; Bars shrink from the 494.0 GW Batch Zero universe (including 302.2 GW from 373 projects excluded), to 191.8–194.3 GW conditionally included, 66.4 GW conditionally base load, 9.5 GW approved to energize, and 4.3 GW observed peak use in August 2026.">
+            <figcaption class="cap">Batch Zero funnel. 494 GW universe → ~192–194 GW conditionally included → 66.4 GW base → 9.5 GW approved → 4.3 GW observed. Stages use different dates; the 494 GW universe is not a queue count.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="ercot-policy" class="fold">
+    <details>
+      <summary>
+        <span class="label">05 · Policy gaps</span>
+        <h2>Six gaps, and what to do about each</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <div class="build">
+            <ul>
+              <li><b>Planning credits curtailment that is not yet enforceable.</b> Adopt PUCT Project 58482 with §39.170(a) included, set the emergency threshold and a measurable response-time standard, require test deployments, and publish reserve margins with and without curtailment credit until it is proven.</li>
+              <li><b>The official reliability outlook has gone dark.</b> The latest CDR is from December 2025 and the next targets January 2027. Publish an interim outlook built on the 66.4 GW Batch Zero base load, the conservative floor.</li>
+              <li><b>The financial filter is weak relative to the queue.</b> $50,000/MW of security is $50 million per GW, forfeiture is only 20%, and the reclaim trigger waits 24 months. Keep security refundable for loads that energize on schedule, but raise forfeiture after allocation and shorten the reclaim trigger.</li>
+              <li><b>Site-splitting and medium loads sit below the 75 MW line.</b> Aggregate load at a single site, or at commonly controlled adjacent sites, toward the threshold.</li>
+              <li><b>The public cannot see the queue.</b> Publish an anonymized, county-level queue spreadsheet by status, like ERCOT's generation interconnection report, and include duplicate-request counts in the Dec 10 verification report.</li>
+              <li><b>Technical standards lag AI-specific behavior, and cost allocation is open.</b> Finalize the 10 MW per 5 seconds variation rule, publish ride-through compliance and event data, and adopt the 12CP replacement for 4CP by SB 6's Dec 31, 2026 deadline with a published residential bill-impact estimate.</li>
+            </ul>
+          </div>
+          <p class="lede">For the 2027 session, the evidence favors finishing and tightening SB 6's mechanisms over a blanket moratorium. A moratorium buys time, but it leaves the curtailment trigger, the reserve-margin gap and the transparency gaps where they are.</p>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="ercot-methods" class="fold">
+    <details>
+      <summary>
+        <span class="label">06 · Methods &amp; data</span>
+        <h2>Open load data, hand-transcribed policy documents, every number cited</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <div class="build">
+            <div>
+              <h3>Hourly load</h3>
+              <ul>
+                <li>Annual peaks and energy are computed from ERCOT's hourly Native Load archives, 2015 through Oct 31, 2026, downloaded by a Python script with an EIA API fallback.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Queue, forecasts, reserve margins and SB 6 status</h3>
+              <ul>
+                <li>ERCOT publishes no machine-readable large-load queue, so these figures were hand-transcribed from ERCOT, PUCT, NERC and Texas Register documents into CSVs.</li>
+                <li>Each row carries its source document, URL, page, as-of date and a status: confirmed, unofficial, secondary or conflicting.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Validated against official peaks</h3>
+              <ul>
+                <li>Computed annual peaks fall within 0.3% of ERCOT's published values: 2023 is 44 MW below the 85,508 MW record and 2024 is 226 MW below 85,425 MW.</li>
+                <li>The July 22, 2026 peak matches ERCOT's unofficial 91,134 MW, August 2026 matches 90,817 MW, and Jan–Aug 2026 energy is within 0.02% of ERCOT's figure.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="ercot-limits" class="fold">
+    <details>
+      <summary>
+        <span class="label">07 · Limitations</span>
+        <h2>Conflicts are kept, not resolved</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <div class="why">
+            <ul>
+              <li>Every queue, Batch Zero and approved-load figure was typed in from PDF slides, and some Batch Zero values are read from chart labels and marked approximate.</li>
+              <li>Conflicting values are shown side by side: the Dec 2024 queue (63 vs. 70.5 GW), Batch Zero studied load (127.9 vs. 125.4 GW, both in one ERCOT deck), the 2025 peak (80,560 MW vs. ~83,700 MW), the July 22, 2026 peak hour (HE18 vs. HE19), and record-day components that sum to 94,925 MW against ERCOT's stated 94,861 MW.</li>
+              <li>All 2026 peaks are unofficial until final settlement.</li>
+              <li>Figures found only in secondary sources, such as press and queue aggregators, are excluded from the charts.</li>
+              <li>ERCOT has published no queue total after June 2026 and no CDR since December 2025.</li>
+              <li>Scope is Texas/ERCOT only. The Nov 3, 2026 governor's race result is unofficial pending canvass and is not analyzed.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <footer>Analysis and writing by Maria Cruz; built with Claude Code (Anthropic).</footer>
+
+  </article>
+
+</main>
+<script>
+  // Open the collapsed section a link points to (e.g. ercot-sb6.html#ercot-charts)
+  function openFromHash() {
+    var el = location.hash && document.querySelector(location.hash);
+    var d = el && el.querySelector('details');
+    if (d) { d.open = true; el.scrollIntoView(); }
+  }
+  addEventListener('hashchange', openFromHash);
+  openFromHash();
+</script>
+</body>
+</html>
