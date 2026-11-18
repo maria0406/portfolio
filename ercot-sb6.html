@@ -41,7 +41,7 @@
         <div class="meta">
           <span><b>Status</b> As of Nov 17, 2026</span>
           <span><b>Extends</b> “Drill, Baby, Drill?”, Vector Engineering Magazine</span>
-          <span><b>Stack</b> Python · pandas · matplotlib · Jupyter</span>
+          <span><b>Stack</b> Python · pandas · SQL (SQLite) · matplotlib · Jupyter</span>
           <!-- TODO: add GitHub repo link once github.com/maria0406/ercot-ai-load is public, e.g.
           <span><b>Repo</b> <a href="https://github.com/maria0406/ercot-ai-load">maria0406/ercot-ai-load</a></span>
           -->
@@ -92,6 +92,10 @@
             <div>
               <h3>Demand is rising, and energy is rising faster than peak</h3>
               <p>Jan–Aug 2026 energy was 343.90 TWh, up 4.21% year over year, matching ERCOT's own figures. ERCOT reported an unofficial record peak of 91,134 MW on July 22, 2026 (its records page now shows 91,155 MW). The previous record was 85,508 MW in 2023.</p>
+            </div>
+            <div>
+              <h3>More hours near record demand</h3>
+              <p>Hours at or above 80 GW went from 222 in 2023 to 643 in 2026, and hours at or above 85 GW from 3 to 249. The 2026 counts run only through Oct 31, so they are a floor. All 10 of the highest-demand days since 2015 were in July–August 2026. The 80 and 85 GW thresholds are round numbers chosen for illustration, not ERCOT criteria.</p>
             </div>
             <div>
               <h3>The discounted forecast was close on underlying demand</h3>
@@ -194,6 +198,13 @@
               <ul>
                 <li>Computed annual peaks fall within 0.3% of ERCOT's published values: 2023 is 44 MW below the 85,508 MW record and 2024 is 226 MW below 85,425 MW.</li>
                 <li>The July 22, 2026 peak matches ERCOT's unofficial 91,134 MW, August 2026 matches 90,817 MW, and Jan–Aug 2026 energy is within 0.02% of ERCOT's figure.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>SQL cross-check</h3>
+              <ul>
+                <li>A SQLite database built from the 103,726 hourly rows plus the hand-transcribed tables backs 8 queries that independently reproduce the notebook's headline numbers: 2023 and 2024 peaks within 0.3% of ERCOT's published values, Jan–Aug 2026 energy up 4.21%, and 0.9% of the ~474 GW queue operating. They also add the stress-hours view.</li>
+                <li>A query on the July 22, 2026 record day puts the peak at hour ending 18 (91,134 MW, unofficial) in the Native Load data.</li>
               </ul>
             </div>
           </div>
