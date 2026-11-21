@@ -30,6 +30,12 @@
     #ercot .result .num { font-size: 32px; font-weight: 700; letter-spacing: -.02em; font-variant-numeric: tabular-nums; color: var(--ink); line-height: 1.1; }
     #ercot .result .cap { font: 400 12.5px/1.4 var(--mono); color: var(--ink-3); }
     #ercot .chart { margin-top: 26px; }
+    #ercot .dashboard { margin-top: 40px; display: grid; gap: 8px; }
+    #ercot .dashboard .lede { margin-top: 0; }
+    #ercot .dashboard .demo { margin-top: 10px; }
+    #ercot .viz-frame { width: 100%; height: clamp(520px, 80vh, 860px); border-radius: 12px; border: 1px solid var(--rule); background: #FBFAF7; overflow: hidden; }
+    #ercot .viz-frame tableau-viz { display: block; width: 100%; height: 100%; }
+    #ercot .dashboard .more { margin-top: 4px; }
     #ercot .chart img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--rule); background: #FBFAF7; }  </style>
 
   <section class="hero" id="ercot-hero">
@@ -140,6 +146,24 @@
             <img src="ercot-batch-zero-funnel.png" width="1746" height="846" loading="lazy" decoding="async" alt="Horizontal bar chart titled &quot;From 494 GW of requests to 4.3 GW of observed load.&quot; Bars shrink from the 494.0 GW Batch Zero universe (including 302.2 GW from 373 projects excluded), to 191.8–194.3 GW conditionally included, 66.4 GW conditionally base load, 9.5 GW approved to energize, and 4.3 GW observed peak use in August 2026.">
             <figcaption class="cap">Batch Zero funnel. 494 GW universe → ~192–194 GW conditionally included → 66.4 GW base → 9.5 GW approved → 4.3 GW observed. Stages use different dates; the 494 GW universe is not a queue count.</figcaption>
           </figure>
+          <!--
+            Interactive dashboard (Tableau Public). The dashboard is not published yet.
+            The URL placeholder token appears exactly twice in this block: the <tableau-viz> src and the fallback link href.
+            Once the dashboard is live, replace both with its https://public.tableau.com/views/... URL via one sed over this file
+            (see the tableau-dashboard branch commit message for the exact command).
+            For a good fit on phones, add a Phone device layout to the dashboard in Tableau; the embed switches to it on narrow screens.
+          -->
+          <div class="dashboard" id="ercot-dashboard">
+            <h3>Interactive dashboard (Tableau Public)</h3>
+            <p class="lede">The same data as a dashboard you can explore: hours above 80 GW by year, daily peaks, and the large-load queue against what is actually operating.</p>
+            <figure class="demo">
+              <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+              <div class="viz-frame">
+                <tableau-viz src="TABLEAU_PUBLIC_URL_PLACEHOLDER" toolbar="bottom" hide-tabs width="100%" height="100%"></tableau-viz>
+              </div>
+              <p class="more"><a href="TABLEAU_PUBLIC_URL_PLACEHOLDER" target="_blank" rel="noopener">Open the dashboard on Tableau Public</a></p>
+            </figure>
+          </div>
         </div>
       </div>
     </details>
