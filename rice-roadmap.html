@@ -1,0 +1,254 @@
+<!doctype html>
+<!-- Every number on this page is a planning assumption or estimate. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="rekordbox Plugin Roadmap: a RICE-prioritized 3-release roadmap for Set Prep Copilot, Move Coach and the Phrase Countdown Light. A product case study by Maria Cruz.">
+  <title>rekordbox Plugin Roadmap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* Page-specific: RICE table and release summary. Uses styles.css tokens only. */
+    .rm-summary { border: 1px solid var(--rule); border-radius: 14px; background: var(--surface); padding: 22px 24px; display: grid; gap: 16px; align-content: start; }
+    .rm-summary ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; }
+    .rm-summary li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 4px 12px; }
+    .rm-summary .rel { font: 600 12.5px/1.6 var(--mono); color: var(--accent-ink); }
+    .rm-summary li p { font-size: 14px; color: var(--ink-2); margin: 0; }
+    .rm-summary li h3 { margin: 0; }
+    .rm-note { font: 400 12.5px/1.5 var(--mono); color: var(--ink-3); margin: 0; }
+    .rm-table-wrap { margin-top: 22px; overflow-x: auto; border: 1px solid var(--rule); border-radius: 12px; }
+    .rm-table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 720px; }
+    .rm-table th, .rm-table td { padding: 11px 12px; text-align: left; border-bottom: 1px solid var(--rule); vertical-align: top; }
+    .rm-table tbody tr:last-child td { border-bottom: 0; }
+    .rm-table thead th { background: var(--surface); font: 500 11.5px/1.3 var(--mono); letter-spacing: .03em; text-transform: uppercase; color: var(--ink-2); white-space: nowrap; }
+    .rm-table th button { all: unset; cursor: pointer; display: inline-flex; gap: 6px; align-items: center; }
+    .rm-table th button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+    .rm-table th button::after { content: "↕"; color: var(--ink-3); }
+    .rm-table th[aria-sort="descending"] button::after { content: "↓"; color: var(--accent-ink); }
+    .rm-table th[aria-sort="ascending"] button::after { content: "↑"; color: var(--accent-ink); }
+    .rm-table td.num, .rm-table th.num { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .rm-table td.score { font-weight: 600; color: var(--ink); }
+    .rm-table td small { display: block; color: var(--ink-3); font-size: 12.5px; margin-top: 2px; }
+    .rm-table .status { margin-left: 0; }
+    .rm-table tr.built td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+    .status.shipped { border-color: var(--accent); color: var(--accent-ink); }
+    .rm-metric { margin-top: 10px; font-size: 13.5px; color: var(--ink-2); }
+    .rm-metric b { color: var(--ink); font-weight: 600; }
+    .features .rm-gate { font: 400 12.5px/1.5 var(--mono); color: var(--ink-3); }
+  </style>
+</head>
+<body>
+<main class="page">
+
+  <header class="topnav">
+    <nav class="tabs" aria-label="Site">
+      <a href="./">About me</a>
+      <a href="./#projects" aria-current="page">Projects</a>
+      <a href="https://maria0406.github.io/resume/maria_cruz_resume.pdf" target="_blank" rel="noopener">Resume<span class="ext" aria-hidden="true"> ↗</span></a>
+    </nav>
+  </header>
+
+  <a class="backlink" href="set-prep.html">← rekordbox Plugin</a>
+
+  <article class="project" id="rice-roadmap">
+
+  <section class="hero sp" id="rm-hero">
+    <div class="label">01 · rekordbox Plugin · Roadmap</div>
+    <div class="hero-body">
+      <div>
+        <h1>Roadmap<br>by RICE</h1>
+        <p class="pitch">14 candidate features for the rekordbox companion app, scored on reach, impact, confidence and effort, then sequenced into 3 releases.</p>
+        <div class="meta">
+          <span><b>Method</b> RICE = Reach × Impact × Confidence ÷ Effort</span>
+          <span><b>Covers</b> Set Prep Copilot · Move Coach · Phrase Countdown Light</span>
+          <span><b>Case study</b> <a href="set-prep.html">rekordbox Plugin</a></span>
+        </div>
+      </div>
+      <aside class="rm-summary" aria-label="Releases at a glance">
+        <ol>
+          <li><span class="rel">R1</span><div><h3>Trust and measurement</h3><p>Make it safe on a real rekordbox library, and make every metric measurable.</p></div></li>
+          <li><span class="rel">R2</span><div><h3>Coach the live set</h3><p>Take the Move Coach prototype live on the controller, verify its FLX4 mapping, and confirm moves through MIDI.</p></div></li>
+          <li><span class="rel">R3</span><div><h3>Take it to the booth</h3><p>Phrase Countdown Light bench build and a second controller.</p></div></li>
+        </ol>
+        <p class="rm-note">Every number on this page is a planning assumption or an estimate. No tester results exist yet.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="rm-strategy" class="fold">
+    <details open>
+      <summary>
+        <span class="label">02 · Strategy</span>
+        <h2>A prepped set and a coach on the controller</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <p class="lede"><b>Vision:</b> a beginner DJ can take their own playlist and walk into their first gig with a set that's already prepped and a coach on the controller.</p>
+          <div class="features">
+            <div>
+              <h3>Who it serves</h3>
+              <p>Student DJs at UT on rekordbox and a beginner controller like the DDJ-FLX4. There are two segments: <em>Preppers</em>, who own local files and want a set ordered and cued, and <em>Learners</em>, who mostly stream and need music to practice on and someone to show them the moves.</p>
+            </div>
+            <div>
+              <h3>The wedge</h3>
+              <p>It orders the set by BPM and key together, which rekordbox can't do. It places named cues that say what move to make, and Move Coach prompts each move on the controller, timed to the DJ's own tracks. The live, MIDI-driven version is still a prototype whose FLX4 mapping hasn't been verified. Today that kind of coaching mostly comes from a paid lesson.</p>
+            </div>
+          </div>
+          <div class="why">
+            <h3>Versus the alternatives</h3>
+            <ul>
+              <li>rekordbox tutorials are generic and not tied to the DJ's own tracks.</li>
+              <li>Video courses keep learning separate from playing a real set.</li>
+              <li>Coach DJ Pro, the closest competitor, scores a set after it's played. Move Coach coaches during the set.</li>
+            </ul>
+          </div>
+          <div class="why">
+            <h3>What the scoring surfaced</h3>
+            <ul>
+              <li>Most student DJs stream, and the app can't analyze streamed audio. So the core prep loop reaches only the Preppers, and it scores mid-table even though its impact is the highest.</li>
+              <li>The practice catalog and Move Coach Practice mode work without local files, so they reach everyone and score highest. That matches the October pivot that turned the app into a learning tool.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="rm-rice" class="fold">
+    <details open>
+      <summary>
+        <span class="label">03 · RICE scores</span>
+        <h2>14 candidates, ranked</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <p class="lede">Reach is the number of DJs, out of a cohort of 5 UT student DJs, who would use the feature. That's the design doc's 5-tester target, not a count of real users. Within it, I assume all 5 can use the features that need no local files, 2 own local files, 3 play on an FLX4, 1 plays on another controller, 2 would use a Countdown Light, and 4 would install the app locally. Effort is in part-time person-weeks, anchored on the design doc's two estimates: 3 weeks for the MVP and about 1 week for Practice mode.</p>
+          <div class="rm-table-wrap">
+            <table class="rm-table" id="rice-table">
+              <thead>
+                <tr>
+                  <th scope="col" class="num"><button type="button" data-col="0" data-type="num">#</button></th>
+                  <th scope="col"><button type="button" data-col="1" data-type="text">Feature</button></th>
+                  <th scope="col"><button type="button" data-col="2" data-type="text">Status</button></th>
+                  <th scope="col" class="num"><button type="button" data-col="3" data-type="num">Reach</button></th>
+                  <th scope="col" class="num"><button type="button" data-col="4" data-type="num">Impact</button></th>
+                  <th scope="col" class="num"><button type="button" data-col="5" data-type="num">Conf.</button></th>
+                  <th scope="col" class="num"><button type="button" data-col="6" data-type="num">Effort</button></th>
+                  <th scope="col" class="num" aria-sort="descending"><button type="button" data-col="7" data-type="num">Score</button></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="built"><td class="num">1</td><td>Move Coach Practice mode<small>Animated FLX4 shows which control to move, which way and when</small></td><td><span class="status shipped">Shipped</span></td><td class="num">5</td><td class="num">2</td><td class="num">70%</td><td class="num">1</td><td class="num score">7.0</td></tr>
+                <tr><td class="num">2</td><td>Library backup + safe re-import check<small>Back up the library, then read cues back to confirm hand-set ones survived</small></td><td><span class="status">Candidate</span></td><td class="num">2</td><td class="num">2</td><td class="num">80%</td><td class="num">0.5</td><td class="num score">6.4</td></tr>
+                <tr class="built"><td class="num">3</td><td>Graded practice catalog<small>300 Creative Commons house tracks, 5 levels, paired lessons</small></td><td><span class="status shipped">Shipped</span></td><td class="num">5</td><td class="num">2</td><td class="num">70%</td><td class="num">1.5</td><td class="num score">4.67</td></tr>
+                <tr><td class="num">4</td><td>BPM and key benchmark vs. rekordbox<small>20 tracks, before any user testing</small></td><td><span class="status">Candidate</span></td><td class="num">2</td><td class="num">1</td><td class="num">90%</td><td class="num">0.5</td><td class="num score">3.6</td></tr>
+                <tr><td class="num">5</td><td>Move confirmation + on-time score<small>Mark each move done from the FLX4's MIDI and report the share made on time. Depends on the unverified FLX4 mapping.</small></td><td><span class="status">Candidate</span></td><td class="num">3</td><td class="num">2</td><td class="num">60%</td><td class="num">1</td><td class="num score">3.6</td></tr>
+                <tr class="built"><td class="num">6</td><td>Live Move Coach<small>FLX4 MIDI overlay over rekordbox. It's a prototype, and its controller mapping is still unverified. Remaining work: verify the mapping on a real FLX4, resync after tempo nudges.</small></td><td><span class="status">Prototype</span></td><td class="num">3</td><td class="num">3</td><td class="num">50%</td><td class="num">1.5</td><td class="num score">3.0</td></tr>
+                <tr><td class="num">7</td><td>Metrics instrumentation<small>Prep-time timer and cue-kept readback</small></td><td><span class="status">Candidate</span></td><td class="num">2</td><td class="num">2</td><td class="num">70%</td><td class="num">1</td><td class="num score">2.8</td></tr>
+                <tr><td class="num">8</td><td>Lesson progress path<small>Track the levels a learner has finished and suggest the next lesson</small></td><td><span class="status">Candidate</span></td><td class="num">5</td><td class="num">1</td><td class="num">50%</td><td class="num">1</td><td class="num score">2.5</td></tr>
+                <tr><td class="num">9</td><td>One-command tester setup<small>Launcher script, so testers skip setting up a Python venv by hand</small></td><td><span class="status">Candidate</span></td><td class="num">4</td><td class="num">1</td><td class="num">60%</td><td class="num">1</td><td class="num score">2.4</td></tr>
+                <tr class="built"><td class="num">10</td><td>Core prep loop<small>BPM + key + energy ordering, cues, XML export, review screen. A 12-track set imported exactly.</small></td><td><span class="status shipped">Shipped</span></td><td class="num">2</td><td class="num">3</td><td class="num">80%</td><td class="num">3</td><td class="num score">1.6</td></tr>
+                <tr><td class="num">11</td><td>Second controller map<small>For example, the DDJ-400 class</small></td><td><span class="status">Candidate</span></td><td class="num">1</td><td class="num">2</td><td class="num">50%</td><td class="num">1</td><td class="num score">1.0</td></tr>
+                <tr class="built"><td class="num">12</td><td>Countdown Light: bench build + serial bridge<small>Schematic and BOM done, firmware compiles. It hasn't run on hardware yet.</small></td><td><span class="status">Designed</span></td><td class="num">2</td><td class="num">2</td><td class="num">50%</td><td class="num">2</td><td class="num score">1.0</td></tr>
+                <tr><td class="num">13</td><td>Countdown Light: PCB + 2-unit build<small>The PCB is not laid out yet</small></td><td><span class="status">Candidate</span></td><td class="num">2</td><td class="num">1</td><td class="num">40%</td><td class="num">3</td><td class="num score">0.27</td></tr>
+                <tr><td class="num">14</td><td>Latin-to-English house bridging<small>A non-goal in the design doc</small></td><td><span class="status">Not planned</span></td><td class="num">1</td><td class="num">1</td><td class="num">30%</td><td class="num">3</td><td class="num score">0.1</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="rm-note" style="margin-top:12px">Reach is out of 5 (an assumption) · Ties are broken by lower effort · Impact is on a 0.25 to 3 scale · Effort is in part-time person-weeks · A marked row is shipped or partly built · Click a column header to sort.</p>
+          <div class="build">
+            <div>
+              <h3>Where I overrode the score</h3>
+              <ul>
+                <li>Metrics instrumentation (#7) moves up into R1. Without it, none of the design doc's success metrics can be measured.</li>
+                <li>The Countdown Light (#12, #13) stays in R3 despite low scores. It's the product's hardware track, gated on the app having real users first, and the PCB only starts if the bench build passes.</li>
+                <li>Going from a 20-DJ to a 5-DJ cohort shrank every score but kept the order, the releases and these overrides the same. With 5 DJs, a single tester moves Reach by 20% or more, so week-1 interviews will matter more than any other input. The PCB build dropped to 2 units, which makes perfboard a real alternative to a custom PCB.</li>
+                <li>Genre bridging (#14) is out of every release. Spotify integration was cut from scope in October, so it isn't scored.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="rm-releases" class="fold">
+    <details open>
+      <summary>
+        <span class="label">04 · Releases</span>
+        <h2>Earn trust, then coach, then build hardware</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <p class="lede">Each release has a gate that must pass before the next one starts. The metrics are the design doc's targets, measured against a baseline from week-1 interviews.</p>
+          <div class="features three">
+            <div>
+              <h3>R1 · Trust and measurement <span class="status">~3 pw est.</span></h3>
+              <p>Safe re-import (#2), the benchmark (#4), metrics instrumentation (#7) and one-command setup (#9), on top of the shipped prep loop, practice catalog and Practice mode.</p>
+              <p class="rm-metric"><b>Targets:</b> 5 active testers (with only 2 of 5 assumed to own files, that means recruiting testers who own files or counting sets prepped from catalog tracks; Maria to decide), prep time cut by at least 50%, at least 70% of cues kept, and 0 hand-set cues lost.</p>
+              <p class="rm-gate">Gate: the re-import merge question is answered.</p>
+            </div>
+            <div>
+              <h3>R2 · Coach the live set <span class="status">~3.5 pw est.</span></h3>
+              <p>Verify the prototype's FLX4 MIDI mapping on a real controller and finish Live Move Coach (#6), confirm moves through MIDI with an on-time score (#5), and add the lesson progress path (#8).</p>
+              <p class="rm-metric"><b>Targets:</b> the share of cued moves made on time improves from a tester's first session to their third (the exact target comes from the R2 baseline), and 4 of 5 testers would use it again.</p>
+              <p class="rm-gate">Gate: the FLX4 mapping is verified, and the timing engine stays in sync through tempo nudges.</p>
+            </div>
+            <div>
+              <h3>R3 · Take it to the booth <span class="status">~3–6 pw est.</span></h3>
+              <p>The Countdown Light bench build and serial bridge (#12) and a second controller map (#11). The PCB and 2-unit build (#13) only happen if the bench build passes, and only if a PCB beats hand-wired perfboard for 2 units.</p>
+              <p class="rm-metric"><b>Targets:</b> the ring stays in step with a metronome at several tempos, testers make more moves on time with the light than without it, and at least 1 tester on another controller completes a coached set.</p>
+              <p class="rm-gate">Not planned: genre bridging and streamed-audio analysis.</p>
+            </div>
+          </div>
+          <div class="skills" aria-label="Skills shown">
+            <span>Product strategy</span><span>RICE prioritization</span><span>Release planning</span><span>Success metrics</span><span>Scope tradeoffs</span><span>Hardware gating</span>
+          </div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  </article>
+
+</main>
+<script>
+  // Open the collapsed section a link points to (e.g. rice-roadmap.html#rm-releases)
+  function openFromHash() {
+    var el = location.hash && document.querySelector(location.hash);
+    var d = el && el.querySelector('details');
+    if (d) { d.open = true; el.scrollIntoView(); }
+  }
+  addEventListener('hashchange', openFromHash);
+  openFromHash();
+
+  // Sort the RICE table by any column
+  (function () {
+    var table = document.getElementById('rice-table');
+    if (!table) return;
+    var tbody = table.tBodies[0];
+    table.querySelectorAll('th button').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var th = btn.parentElement, col = +btn.dataset.col, isNum = btn.dataset.type === 'num';
+        var dir = th.getAttribute('aria-sort') === 'descending' ? 'ascending' : 'descending';
+        table.querySelectorAll('th').forEach(function (h) { h.removeAttribute('aria-sort'); });
+        th.setAttribute('aria-sort', dir);
+        var rows = Array.prototype.slice.call(tbody.rows);
+        rows.sort(function (a, b) {
+          var x = a.cells[col].textContent.trim(), y = b.cells[col].textContent.trim();
+          var r = isNum ? parseFloat(x) - parseFloat(y) : x.localeCompare(y);
+          return dir === 'ascending' ? r : -r;
+        });
+        rows.forEach(function (r) { tbody.appendChild(r); });
+      });
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Competitive analysis: how Maria Cruz's rekordbox companion app compares with DeckSpin, SetFlow, Coach DJ Pro, Mixed In Key, DJ.Studio, rekordbox and Lexicon across 12 dimensions.">
+  <title>DJ Tools Competitive Analysis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    /* Matrix table only; everything else uses styles.css classes. */
+    .matrix-wrap { margin-top: 22px; overflow-x: auto; -webkit-overflow-scrolling: touch; border-top: 2px solid var(--ink); }
+    .matrix { border-collapse: collapse; width: 100%; min-width: 880px; font-size: 13px; }
+    .matrix th, .matrix td { text-align: left; vertical-align: top; padding: 9px 10px; border-bottom: 1px solid var(--rule); }
+    .matrix thead th { font: 500 11px/1.3 var(--mono); letter-spacing: .03em; text-transform: uppercase; color: var(--ink-2); }
+    .matrix tbody th { font-weight: 600; color: var(--ink); width: 170px; }
+    .matrix td { color: var(--ink-2); }
+    .matrix .me { background: var(--surface); color: var(--ink); }
+    .matrix .y::before, .matrix .p::before, .matrix .n::before, .matrix .u::before { font: 500 11px/1 var(--mono); margin-right: 5px; }
+    .matrix .y::before { content: "YES"; color: var(--accent-ink); }
+    .matrix .p::before { content: "PART"; color: var(--ink-2); }
+    .matrix .n::before { content: "NO"; color: var(--ink-3); }
+    .matrix .u::before { content: "?"; color: var(--ink-3); }
+    .cap { font-size: 12.5px; color: var(--ink-3); margin-top: 10px; }
+    .src { font-size: 13px; color: var(--ink-2); }
+    .src li { margin: 4px 0; overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+<main class="page">
+
+  <header class="topnav">
+    <nav class="tabs" aria-label="Site">
+      <a href="./">About me</a>
+      <a href="./#projects" aria-current="page">Projects</a>
+      <a href="https://maria0406.github.io/resume/maria_cruz_resume.pdf" target="_blank" rel="noopener">Resume<span class="ext" aria-hidden="true"> ↗</span></a>
+    </nav>
+  </header>
+
+  <a class="backlink" href="./set-prep.html">← rekordbox Plugin</a>
+
+  <article class="project" id="competitive-analysis">
+
+  <section class="hero sp" id="ca-hero">
+    <div class="label">01 · Competitive analysis</div>
+    <div class="hero-body">
+      <div>
+        <h1>Who else<br>coaches the mix?</h1>
+        <p class="pitch">I compared my rekordbox companion app with 7 DJ set-prep and coaching tools across 12 dimensions. One tool beats it at live coaching, one is the biggest threat, and the comparison produced 5 changes to the roadmap.</p>
+        <div class="meta">
+          <span><b>Compared</b> DeckSpin · SetFlow · Coach DJ Pro · Mixed In Key 11 · DJ.Studio · rekordbox 7 · Lexicon</span>
+          <span><b>Method</b> Public product pages, changelogs, pricing, and DeckSpin's shipped JS bundle, with every claim sourced</span>
+          <span><b>Date</b> Nov 2026</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ca-summary" class="fold">
+    <details open>
+      <summary>
+        <span class="label">02 · Summary</span>
+        <h2>The whole loop is the edge. Move confirmation is the gap.</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <p class="lede">No tool I reviewed does all three steps: order a full set by BPM, key, and energy; write the transition moves into rekordbox as cues; and coach those moves on the DJ's own controller. Every competitor covers one or two of the three.</p>
+          <div class="why">
+            <h3>What I found</h3>
+            <ul>
+              <li><b>DeckSpin beats Move Coach on live coaching today.</b> It reads a DDJ-FLX4 over Web MIDI, pauses until you fix a wrong control, and grades every move. My MIDI listener reads the controls but doesn't check them yet.</li>
+              <li><b>SetFlow is the biggest threat.</b> It is an established, paid product with set ordering, mix points, and an on-screen tutor. It doesn't write new cues to rekordbox or read a real controller, at least not yet.</li>
+              <li><b>Setup is my weakest point.</b> Competitors run in a browser. Mine needs Python and a local server.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="ca-matrix" class="fold">
+    <details open>
+      <summary>
+        <span class="label">03 · Feature matrix</span>
+        <h2>12 dimensions, 8 products</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <div class="matrix-wrap">
+            <table class="matrix">
+              <thead>
+                <tr><th>Dimension</th><th class="me">My app</th><th>DeckSpin</th><th>SetFlow</th><th>Coach DJ Pro</th><th>Mixed In Key 11</th><th>DJ.Studio</th><th>rekordbox 7</th><th>Lexicon</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>Orders a full set by BPM and key</th><td class="me y">Greedy + swap pass</td><td class="n">Two songs only</td><td class="y">Keys, tempo, energy, genre</td><td class="y">Setlist generator</td><td class="p">Detects, sorts by hand</td><td class="y">Harmonize</td><td class="p">One column at a time</td><td class="p">Next-track picks</td></tr>
+                <tr><th>Energy-shaped set arc</th><td class="me y">Set shapes, 1–10 levels</td><td class="n"></td><td class="y">Energy curves</td><td class="y">In ordering</td><td class="p">Energy Level only</td><td class="u">Unknown</td><td class="n">None found</td><td class="u">Unknown</td></tr>
+                <tr><th>Phrase-aware cue placement</th><td class="me y">8/16/32-bar, paired</td><td class="p">Lessons start on a phrase</td><td class="y">Smart Mix Points</td><td class="p">Sections, for scoring</td><td class="p">Structural cues</td><td class="y">v5.0 phrases</td><td class="y">CUE Analysis</td><td class="p">Templates</td></tr>
+                <tr><th>Writes new cues to rekordbox</th><td class="me y">XML import, tested on 12 tracks</td><td class="n">No rekordbox link</td><td class="n">"Not yet"</td><td class="u">Not stated</td><td class="y">Up to 8</td><td class="y">With cue points</td><td class="y">Native</td><td class="y">Ultimate plan</td></tr>
+                <tr><th>Cues say what to do</th><td class="me y">10 types: BASS SWAP, FILTER…</td><td class="p">7 lessons, nothing saved</td><td class="p">Start / swap / drop</td><td class="n"></td><td class="n">Structure</td><td class="p">Timeline edits</td><td class="n">Structure</td><td class="n">Templates</td></tr>
+                <tr><th>On-screen move coaching</th><td class="me y">Animated FLX4</td><td class="y">3D FLX4, rhythm game</td><td class="y">DJ Tutor (Pro)</td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n">None found</td><td class="n"></td></tr>
+                <tr><th>Reads a real controller (MIDI)</th><td class="me p">Listener prototype built; FLX4 map unverified</td><td class="y">Web MIDI</td><td class="n">Doesn't read knobs</td><td class="n"></td><td class="n"></td><td class="n"></td><td class="y">Host app</td><td class="n"></td></tr>
+                <tr><th>Confirms or grades each move</th><td class="me n">Designed, not built</td><td class="y">Fix-first + Perfect/Miss</td><td class="n">No scoring</td><td class="p">Scores audio afterward</td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n"></td></tr>
+                <tr><th>Works on your own tracks</th><td class="me y">Local files + 300 CC tracks</td><td class="y">Any MP3/WAV</td><td class="y">Library import</td><td class="y"></td><td class="y"></td><td class="y"></td><td class="y">Incl. streaming</td><td class="y"></td></tr>
+                <tr><th>Audio stays local</th><td class="me y">Local web app</td><td class="y">In-browser worker</td><td class="p">Metadata shared</td><td class="y">100% local</td><td class="u">Unknown</td><td class="u">Unknown</td><td class="y">Desktop</td><td class="u">Unknown</td></tr>
+                <tr><th>Price</th><td class="me">Free</td><td>Not listed</td><td>£2.99–4.99/mo</td><td>Free tier; €27/€89 lifetime</td><td>$58 / $99 once</td><td>$29/mo or $99–209</td><td>Free to $36/mo</td><td>Free to $9.99/mo</td></tr>
+                <tr><th>Hardware add-on</th><td class="me p">Cue light, design stage</td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n"></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="cap">YES = yes · PART = partial · NO = no · ? = unknown. My app's cells come from its code, not its roadmap. Sources are listed below the matrix and numbered in the full write-up.</p>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="ca-players" class="fold">
+    <details>
+      <summary>
+        <span class="label">04 · The competitors</span>
+        <h2>Positioning, strengths and weaknesses</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <div class="features">
+            <div>
+              <h3>DeckSpin <span class="status">Closest on coaching</span></h3>
+              <p>A Lovable-built browser prototype titled "Deck School." You drop in two songs, check the downbeat by ear, and pick one of 7 lessons, from a hard cut to a loop roll. Then you play it as a rhythm game on a 3D FLX4 or your real one over Web MIDI. <b>Strong:</b> zero install, move confirmation, polish. <b>Weak:</b> two songs at a time, no rekordbox link, no pricing or company shown.</p>
+            </div>
+            <div>
+              <h3>SetFlow <span class="status">Biggest threat</span></h3>
+              <p>A paid browser set builder for "weekend and working DJs," shipping several releases a week. It orders full sets, shows where to start the mix and swap the bass, and its DJ Tutor shows each transition on an on-screen controller. <b>Weak:</b> it doesn't write new cues to rekordbox "yet," doesn't read a controller, and puts the tutor behind its Pro plan.</p>
+            </div>
+            <div>
+              <h3>Coach DJ Pro</h3>
+              <p>A local desktop app that scores a recorded set's transitions on 7 axes and tracks progress. Its paid Live Assistant suggests the next track. <b>Weak:</b> feedback comes after the set, from audio, with no controller guidance.</p>
+            </div>
+            <div>
+              <h3>Mixed In Key 11</h3>
+              <p>The standard for key detection and the 1–10 Energy Level, which my ordering is calibrated to. It adds up to 8 cues per track. <b>Weak:</b> its cues mark structure, not moves, and there is no set builder or coaching.</p>
+            </div>
+            <div>
+              <h3>DJ.Studio</h3>
+              <p>A timeline DAW for recorded mixes. v5.0 added phrase detection and export with cue points. <b>Weak:</b> it is built for offline mixes, has no coaching, and costs $99 or more.</p>
+            </div>
+            <div>
+              <h3>rekordbox 7 and Lexicon</h3>
+              <p>rekordbox's CUE Analysis auto-places cues from phrase analysis and learns from your own cueing, and the FLX4's Smart Fader automates the bass swap. Lexicon generates template cues and suggests what to play next. <b>Weak:</b> neither one orders a set by BPM and key together or coaches moves.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="ca-winlose" class="fold">
+    <details>
+      <summary>
+        <span class="label">05 · Where it wins and loses</span>
+        <h2>An honest scorecard</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <div class="build">
+            <div>
+              <h3>Wins</h3>
+              <ul>
+                <li>The only tool that orders the set, writes the moves into rekordbox, and coaches them on the controller.</li>
+                <li>Cues say what to do (BASS SWAP, FILTER, a way out every 16 bars) and are paired across both tracks.</li>
+                <li>The prep stays in rekordbox for the gig, without the app open.</li>
+                <li>A legally sourced 300-track practice catalog in 5 levels.</li>
+                <li>Free and local.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Losses</h3>
+              <ul>
+                <li>No move confirmation yet, while DeckSpin ships it.</li>
+                <li>Needs Python and a local server, while competitors run in a browser.</li>
+                <li>Less polish and engagement than DeckSpin's game loop.</li>
+                <li>No tester data yet, while SetFlow publishes usage numbers.</li>
+                <li>rekordbox and FLX4 only, and it can't analyze streamed tracks.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="ca-insights" class="fold">
+    <details>
+      <summary>
+        <span class="label">06 · What I'd change</span>
+        <h2>5 product insights</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <div class="next">
+            <div>
+              <h3>1. Ship move confirmation <span class="status">Highest priority</span></h3>
+              <p>The MIDI listener already stores the DJ's real fader and knob positions. Comparing them with the coach's target, and pausing on a wrong move the way DeckSpin does, turns the core claim from a design into a feature and powers the "moves completed on time" metric.</p>
+            </div>
+            <div>
+              <h3>2. Sell the loop, not "the only coach"</h3>
+              <p>"Order your set, get the moves written onto your rekordbox waveforms, then practice them on your own controller." DeckSpin coaches and SetFlow tutors, but neither leaves you with a prepped library.</p>
+            </div>
+            <div>
+              <h3>3. Make Move Coach run in the browser</h3>
+              <p>Web MIDI and Web Audio in Chrome are enough for live coaching, as both competitors show. Keep Python for the rekordbox read and write only, and let the hosted demo accept a real FLX4.</p>
+            </div>
+            <div>
+              <h3>4. Check the downbeat before writing cues</h3>
+              <p>Borrow DeckSpin's "does the high click land on the one?" step. Every cue depends on bar 1, so this targets the biggest accuracy risk and the 70% cue-keep goal.</p>
+            </div>
+            <div>
+              <h3>5. Benchmark against rekordbox's own cues and watch SetFlow</h3>
+              <p>Compare cue keep rates against rekordbox CUE Analysis and Mixed In Key. If SetFlow ships cue write-back and controller input, lead with the paired action cues and the cue light.</p>
+            </div>
+          </div>
+          <div class="skills" aria-label="Skills shown">
+            <span>Competitive analysis</span><span>Market research</span><span>Feature benchmarking</span><span>Positioning</span><span>Pricing research</span><span>Product prioritization</span>
+          </div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="ca-sources" class="fold">
+    <details>
+      <summary>
+        <span class="label">07 · Sources</span>
+        <h2>Where every claim comes from</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <ul class="src">
+            <li>DeckSpin landing page and shipped JS bundle: <a href="https://deckspin.lovable.app/" target="_blank" rel="noopener">deckspin.lovable.app</a></li>
+            <li>SetFlow: <a href="https://www.setflow.app/" target="_blank" rel="noopener">home and pricing</a>, <a href="https://www.setflow.app/changelog" target="_blank" rel="noopener">changelog</a>, <a href="https://www.setflow.app/blog/learn-dj-transitions-move-by-move" target="_blank" rel="noopener">DJ Tutor</a>, <a href="https://www.setflow.app/blog/how-to-export-dj-set-to-usb-for-cdjs" target="_blank" rel="noopener">export and cues</a>, <a href="https://www.setflow.app/blog/best-dj-set-planning-software" target="_blank" rel="noopener">tool comparison</a></li>
+            <li>Coach DJ Pro: <a href="https://coachdj.net/en/" target="_blank" rel="noopener">coachdj.net</a></li>
+            <li>Mixed In Key: <a href="https://mixedinkey.com/features/" target="_blank" rel="noopener">features</a>, <a href="https://mixedinkey.com/harmonic-mixing-guide/sorting-playlists-by-energy-level/" target="_blank" rel="noopener">Energy Level guide</a></li>
+            <li>DJ.Studio: <a href="https://dj.studio/" target="_blank" rel="noopener">home</a>, <a href="https://dj.studio/ultimate" target="_blank" rel="noopener">Ultimate</a>, <a href="https://rekkerd.org/dj-studio-5-0-puts-every-transition-on-the-beat-and-on-the-phrase/" target="_blank" rel="noopener">Rekkerd on v5.0</a></li>
+            <li>rekordbox: <a href="https://rekordbox.com/en/feature/overview/" target="_blank" rel="noopener">feature overview</a>, <a href="https://rekordbox.com/en/support/faq/operation-hints-7/" target="_blank" rel="noopener">CUE Analysis FAQ</a>, <a href="https://rekordbox.com/en/plan/" target="_blank" rel="noopener">plans</a></li>
+            <li>Lexicon: <a href="https://www.lexicondj.com/" target="_blank" rel="noopener">lexicondj.com</a></li>
+            <li>Auto-cue tools compared: <a href="https://kimicue.com/blog/automatic-hot-cue-placement" target="_blank" rel="noopener">KimiCue</a></li>
+            <li>FLX4: <a href="https://www.pioneerdj.com/en/product/dj-controllers/ddj-flx4/" target="_blank" rel="noopener">Pioneer DJ</a>, <a href="https://wearecrossfader.co.uk/blog/pioneer-dj-ddj-flx4-review/" target="_blank" rel="noopener">We Are Crossfader review</a></li>
+            <li>Tribe XR: <a href="https://dj.tribexr.com/" target="_blank" rel="noopener">dj.tribexr.com</a></li>
+            <li>Market size (low confidence): <a href="https://www.htfmarketintelligence.com/report/global-dj-software-market" target="_blank" rel="noopener">HTF Market Intelligence</a></li>
+          </ul>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  </article>
+
+</main>
+<script>
+  // Open the collapsed section a link points to (e.g. competitive-analysis.html#ca-insights)
+  function openFromHash() {
+    var el = location.hash && document.querySelector(location.hash);
+    var d = el && el.querySelector('details');
+    if (d) { d.open = true; el.scrollIntoView(); }
+  }
+  addEventListener('hashchange', openFromHash);
+  openFromHash();
+</script>
+</body>
+</html>

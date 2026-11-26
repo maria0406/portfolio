@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Move Coach PRD: user stories and acceptance criteria for the coaching feature of a rekordbox companion app, with what is built, prototyped and planned. By Maria Cruz.">
+  <title>Move Coach PRD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<main class="page">
+
+  <header class="topnav">
+    <nav class="tabs" aria-label="Site">
+      <a href="./">About me</a>
+      <a href="./#projects" aria-current="page">Projects</a>
+      <a href="https://maria0406.github.io/resume/maria_cruz_resume.pdf" target="_blank" rel="noopener">Resume<span class="ext" aria-hidden="true"> ↗</span></a>
+    </nav>
+  </header>
+
+  <a class="backlink" href="set-prep.html">← rekordbox Plugin</a>
+
+  <article class="project" id="move-coach-prd">
+
+  <section class="hero sp" id="mc-hero">
+    <div class="label">PRD · Move Coach</div>
+    <div class="hero-body">
+      <div>
+        <h1>Move Coach<br>PRD</h1>
+        <p class="pitch">The product requirements for Move Coach, the part of my rekordbox companion app that shows a beginner DJ which control to move, which way and when, on their own tracks.</p>
+        <div class="meta">
+          <span><b>Scope</b> 8 user stories, each with testable acceptance criteria</span>
+          <span><b>Status</b> 4 built · 2 prototype · 2 planned</span>
+          <span><b>Repo</b> <a href="https://github.com/maria0406/RekordBox-Plugin/tree/main/set-prep-copilot">maria0406/RekordBox-Plugin</a></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mc-problem" class="fold">
+    <details open>
+      <summary>
+        <span class="label">01 · Problem</span>
+        <h2>A cue says when, not how</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <p class="lede">A cue in rekordbox tells a new DJ <em>when</em> to swap the bass, but not <em>how</em>. Beginners learn from videos that use other people's songs, so the timing never matches their own tracks.</p>
+          <div class="why">
+            <h3>Why it's hard today</h3>
+            <ul>
+              <li>When a transition sounds off, a beginner can't tell whether they moved the wrong control, turned it the wrong way or moved it too late.</li>
+              <li>The only feedback in the moment comes from a paid private lesson.</li>
+              <li>rekordbox has no public API for playback position, so any live coach has to work out where the decks are by itself.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="mc-who" class="fold">
+    <details>
+      <summary>
+        <span class="label">02 · Who it's for</span>
+        <h2>Student DJs on beginner controllers</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <p class="lede">Student DJs at UT who play rekordbox on a controller like the Pioneer DDJ-FLX4. The persona is Sofia, a sophomore with a new FLX4 who wants to play her org's next party. I'm user zero.</p>
+          <div class="features">
+            <div>
+              <h3>Goals</h3>
+              <p>Show which control to move, which way and when, timed to the phrases of the DJ's own tracks. Use one timing engine for every view, so the animation always matches the audio. Follow a live set in rekordbox from the controller's own MIDI.</p>
+            </div>
+            <div>
+              <h3>Non-goals</h3>
+              <p>Scoring the audio of a mix after it's played. Copying Pioneer's hardware design or logos (the drawing is generic, with FLX4 control names). Other controllers, Windows overlay support, and full-screen rekordbox.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="mc-stories" class="fold">
+    <details open>
+      <summary>
+        <span class="label">03 · User stories</span>
+        <h2>8 stories, each with acceptance criteria</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <p class="lede">Built means it's in the app today. Prototype means the code and automated tests exist but haven't been checked end to end on the controller with rekordbox. Planned means designed, not built.</p>
+          <div class="build">
+            <div>
+              <h3>1. Watch a transition <span class="status">Built</span></h3>
+              <p>As a new DJ, I want to watch each transition in my prepped set as an animated controller, so that I see which control to move, which way and when.</p>
+              <ul>
+                <li>Given a prepped set, when I select a transition and press Play demo, then the controller animates each move in order: deck 2 PLAY, channel 2 fader up, bass swap, channel 1 filter, channel 1 fader down.</li>
+                <li>Given the next move starts within 8 bars, then the caption reads "Next: &lt;move&gt; in N bars".</li>
+                <li>Given a transition has no BASS SWAP or FILTER cue, then those moves default to 16 bars after MIX OUT and 1 bar after the swap.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>2. Hear it mixed <span class="status">Built</span></h3>
+              <p>As a new DJ, I want to hear the two tracks mixed while the controller animates, so that I connect each move to the sound it makes.</p>
+              <ul>
+                <li>Given the demo is playing, when a move changes a control, then the browser mix applies the same fader, LOW EQ and filter value on the same frame.</li>
+                <li>Given the tracks have different BPMs, then the incoming track plays at the outgoing tempo with keylock on.</li>
+                <li>Given the audio can't load, then a silent clock still drives the animation.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>3. Jump to one move <span class="status">Built</span></h3>
+              <p>As a new DJ, I want to jump straight to one move, so that I can repeat the part I keep getting wrong.</p>
+              <ul>
+                <li>Given a transition, when I click a move's button, then playback seeks to one bar before that move starts.</li>
+                <li>Given a different transition is selected, when I click a move on another one, then that transition is selected first.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>4. Learn a fake drop <span class="status">Built</span></h3>
+              <p>As a DJ building energy, I want to be taught a fake drop when my track has one, so that I learn a technique beyond the basic blend.</p>
+              <ul>
+                <li>Given the outgoing track has a FAKE DROP cue that ends before the mix's 8-bar heads-up, then two moves are added: kill channel 1's LOW in the last half-bar, then bring it back after one bar.</li>
+                <li>Given the fake drop would overlap the heads-up, then it isn't taught.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>5. Follow my decks live <span class="status">Prototype</span></h3>
+              <p>As a DJ playing my own set in rekordbox, I want the coach to follow my decks from my FLX4, so that the prompts appear at the right moment while I play.</p>
+              <ul>
+                <li>Given the FLX4 is connected, when I press LOAD, PLAY or CUE or move the tempo slider, then the estimated deck position resets, starts or stops, returns to the cue point, or changes speed.</li>
+                <li>Given a transition runs from deck 2 into deck 1, then the overlay swaps the deck and channel numbers in the drawing and the text.</li>
+                <li>Given no controller is found, then the overlay still opens and says no FLX4 MIDI input was found.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>6. Re-sync after drift <span class="status">Prototype</span></h3>
+              <p>As a DJ who nudged the jog wheel or used a loop, I want to re-sync the coach in one click, so that the prompts line up with my track again.</p>
+              <ul>
+                <li>Given the estimate has drifted, when I press a sync button, then the outgoing deck's position is set to the track start or to 8 bars before MIX OUT.</li>
+                <li>Given no controller is connected, then the sync buttons still set the position, so the overlay can be driven by hand.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>7. Confirm my move <span class="status">Planned</span></h3>
+              <p>As a new DJ, I want the coach to confirm when I make the right move, so that I know I did it and it moves on.</p>
+              <ul>
+                <li>Given a move is active, when the FLX4 reports the cued control reached its target inside the move's window, then the move is marked done and the prompt advances.</li>
+                <li>Given I move the wrong control, then the prompt stays.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>8. See my on-time score <span class="status">Planned</span></h3>
+              <p>As a new DJ, I want to see how many cued moves I completed on time, so that I can track my progress across practice sessions.</p>
+              <ul>
+                <li>Given a finished practice run, then I see the share of cued moves completed on time, saved per session.</li>
+                <li>Given a move isn't confirmed before its window ends, then it counts as missed.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="mc-metrics" class="fold">
+    <details>
+      <summary>
+        <span class="label">04 · Success metrics</span>
+        <h2>Targets, not results yet</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <p class="lede">No testers have used Move Coach yet, so every number below is a target.</p>
+          <div class="build">
+            <div>
+              <h3>Learning metric</h3>
+              <ul>
+                <li>Share of cued moves completed on time, confirmed through the FLX4's MIDI. The baseline comes from each tester's first sessions, and the goal is for it to rise.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Product metrics (from the design doc)</h3>
+              <ul>
+                <li>Active testers: 5 DJs who prep at least one real set with the tool.</li>
+                <li>Would use again: 4 of 5 testers say yes in a one-question survey after a set.</li>
+                <li>Prep time per set: cut by at least 50% on a timed 15-track set.</li>
+                <li>Cue accuracy: DJs keep 70% or more of the generated cues without moving them.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section id="mc-risks" class="fold">
+    <details>
+      <summary>
+        <span class="label">05 · Risks</span>
+        <h2>What could break the live coach</h2>
+        <span class="fold-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="fold-body">
+        <div>
+          <div class="build">
+            <div>
+              <ul>
+                <li>The deck estimate drifts when the DJ nudges the jog wheel, uses hot cues, loops, beat jump or SYNC. Manual re-sync covers this for now.</li>
+                <li>The default FLX4 MIDI map isn't verified yet. A probe script records a measured map from the real controller, and the overlay uses it when it's there.</li>
+                <li>Stories 7 and 8 depend on that measured map. The Phrase Countdown Light is designed to reuse the same timing engine. Its laptop-side sender isn't built yet.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="skills" aria-label="Skills shown">
+            <span>Product requirements</span><span>User stories</span><span>Acceptance criteria</span><span>Success metrics</span><span>Scoping and tradeoffs</span>
+          </div>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  </article>
+
+</main>
+<script>
+  // Open the collapsed section a link points to (e.g. move-coach-prd.html#mc-stories)
+  function openFromHash() {
+    var el = location.hash && document.querySelector(location.hash);
+    var d = el && el.querySelector('details');
+    if (d) { d.open = true; el.scrollIntoView(); }
+  }
+  addEventListener('hashchange', openFromHash);
+  openFromHash();
+</script>
+</body>
+</html>
